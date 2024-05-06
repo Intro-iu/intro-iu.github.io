@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>在服务器上生成SSL证书并部署至Nginx | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>在服务器上生成SSL证书并部署至Nginx</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-04-02T09:36:57.698Z" id="date"> 2024-04-02</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.698Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="获取环境与项目"><a href="#获取环境与项目" class="headerlink" title="获取环境与项目"></a>获取环境与项目</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt install socat -y<br><br>git <span class="hljs-built_in">clone</span> https://github.com/acmesh-official/acme.sh.git<br></code></pre></td></tr></table></figure>
+<h1 id="生成证书并导入到nginx"><a href="#生成证书并导入到nginx" class="headerlink" title="生成证书并导入到nginx"></a>生成证书并导入到Nginx</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> .acme.sh<br><br>./acme.sh --install -m intro-iu@outlook.com<br><br><span class="hljs-built_in">export</span> CF_Key=<span class="hljs-string">&quot;&quot;</span> &amp;&amp; <span class="hljs-built_in">export</span> CF_Email=<span class="hljs-string">&quot;&quot;</span><br><br>./acme.sh --issue --dns dns_cf -d intro-iu.top -d *.intro-iu.top<br><br><span class="hljs-built_in">mkdir</span> /etc/nginx/ssl<br><br>./acme.sh --installcert -d intro-iu.top --keypath /etc/nginx/ssl/intro-iu.top.key --fullchainpath /etc/nginx/ssl/intro-iu.top.cer<br></code></pre></td></tr></table></figure>
+<h1 id="更改nginx配置使证书生效"><a href="#更改nginx配置使证书生效" class="headerlink" title="更改nginx配置使证书生效"></a>更改Nginx配置使证书生效</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+<h1 id="在ssl区块中添加一下两行"><a href="#在ssl区块中添加一下两行" class="headerlink" title="在ssl区块中添加一下两行"></a>在SSL区块中添加一下两行</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssl_certificate ssl/intro-iu.top.cer;<br><br>ssl_certificate_key ssl/intro-iu.top.key;<br></code></pre></td></tr></table></figure>
+<h1 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启Nginx</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -t<br><br>systemctl reload nginx<br></code></pre></td></tr></table></figure>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/04/02/Limit/">← Next </a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/04/02/hello-world/">Hello World Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%8E%AF%E5%A2%83%E4%B8%8E%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">获取环境与项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%88%B0nginx"><span class="toc-number">2.</span> <span class="toc-text">生成证书并导入到Nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9nginx%E9%85%8D%E7%BD%AE%E4%BD%BF%E8%AF%81%E4%B9%A6%E7%94%9F%E6%95%88"><span class="toc-number">3.</span> <span class="toc-text">更改Nginx配置使证书生效</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8ssl%E5%8C%BA%E5%9D%97%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%8B%E4%B8%A4%E8%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">在SSL区块中添加一下两行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E5%90%AFnginx"><span class="toc-number">5.</span> <span class="toc-text">重启Nginx</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

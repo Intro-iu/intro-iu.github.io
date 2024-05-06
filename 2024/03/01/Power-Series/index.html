@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>幂级数 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>幂级数</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-03-01T14:13:59.000Z" id="date"> 2024-03-01</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.702Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="函数项级数"><a href="#函数项级数" class="headerlink" title="函数项级数"></a>函数项级数</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>设 <span class="math inline">\(f_n(x)\)</span> 是定义在 <span
+class="math inline">\(D\)</span> 上的一串函数（<span
+class="math inline">\(n = 1, 2, 3,
+\cdots\)</span>），也称之为函数序列，用 <code>+</code>
+号将其一次连接起来，<span class="math inline">\(f_1(x) + f_2(x) + \cdots
++ f_n(x) + \cdots \triangleq \sum\limits_{n=1}^\infty f_n(x)\)</span>
+称之为 <span class="math inline">\(D\)</span>
+上的<strong>函数项级数</strong>。<span class="math inline">\(S_n =
+f_1(x) + f_2(x) + \cdots + f_n(x)\)</span>
+称为<strong>部分和</strong>。<span class="math inline">\(r_n(x) =
+f_{n+1}(x) + f_{n+2}(x) + \cdots\)</span>
+为函数项级数的<strong>余项</strong>。</p>
+<p>对 <span class="math inline">\(x_0 \in D\)</span>，若 <span
+class="math inline">\(\sum\limits_{n=1}^\infty f_n(x_0)\)</span>
+收敛，则称 <span class="math inline">\(x_0\)</span> 为 <span
+class="math inline">\(\sum\limits_{n=1}^\infty f_n(x)\)</span>
+的<strong>收敛点</strong>，收敛点的全体组成的集合称为 <span
+class="math inline">\(\sum\limits_{n=1}^\infty f_n(x)\)</span>
+的<strong>收敛域</strong>，记 <span class="math inline">\(S(x) =
+\lim\limits_{n\to\infty} S_n(x)\)</span>，称 <span
+class="math inline">\(S(x)\)</span>
+为函数项级数的<strong>和函数</strong>。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2>
+<h3 id="定理1quad-函数项级数和函数的连续性"><strong>定理1</strong><span
+class="math inline">\(\quad\)</span> 函数项级数和函数的连续性</h3>
+<p>设 <span class="math inline">\(\sum\limits_{n=1}^\infty
+u_n(x)\)</span> 在 <span class="math inline">\([a, b]\)</span>
+上一致收敛，且级数每一项 <span class="math inline">\(u_n(x)\)</span> 在
+<span class="math inline">\([a, b]\)</span> 上都连续，则和函数 <span
+class="math inline">\(S(x)\)</span> 在 <span class="math inline">\([a,
+b]\)</span> 上连续。</p>
+<h3 id="定理2quad-函数项级数逐项积分性"><strong>定理2</strong><span
+class="math inline">\(\quad\)</span> 函数项级数逐项积分性</h3>
+<h3 id="定理3quad-函数项级数逐项微分性"><strong>定理3</strong><span
+class="math inline">\(\quad\)</span> 函数项级数逐项微分性</h3>
+<h1 id="幂级数"><a href="#幂级数" class="headerlink" title="幂级数"></a>幂级数</h1>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义-1"></a>定义</h2>
+<p>称 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n = a_0
++ a_1 x + \cdots + a_n x^n + \cdots\)</span>
+为标准的<strong>幂级数</strong>，这里 <span
+class="math inline">\(a_n\)</span>，<span class="math inline">\(n = 0,
+1, 2, \cdots\)</span> 称之为幂级数的系数。</p>
+<p>称 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n (x-x_0)^n
+= a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)^n + \cdots\)</span>
+为<strong>一般型幂级数</strong>。</p>
+<p>称 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n
+\phi^n(x)\)</span> 为<strong>广义幂级数</strong>。</p>
+<p>对于 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n
+x^n\)</span>，当 <span class="math inline">\(x=0\)</span>
+时，级数<strong>收敛</strong>，若除 <span
+class="math inline">\(0\)</span>
+以外没有收敛点称为级数<strong>发散</strong>。</p>
+<p>任何一个标准的幂级数 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n
+x^n\)</span>，都存在唯一一个 <span
+class="math inline">\(R\)</span>，<span class="math inline">\((R \ge 0
+或 R = +\infty)\)</span> 使 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span> 在 <span
+class="math inline">\((-R, R)\)</span> 内绝对收敛，在 <span
+class="math inline">\((-\infty, -R)\)</span> 和 <span
+class="math inline">\((R, +\infty)\)</span> 上发散，则称 <span
+class="math inline">\(R\)</span> 为 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span>
+的<strong>收敛半径</strong>，<span class="math inline">\((-R,
+R)\)</span> 称之为 <span class="math inline">\(\sum\limits_{n=0}^\infty
+a_n x^n\)</span> 的<strong>收敛区间</strong>。</p>
+<p><span class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span>
+的<strong>收敛域</strong> <span class="math inline">\(=\)</span>
+收敛区间 <span class="math inline">\((-R, R) \cup \pm R\)</span>
+中收敛的点</p>
+<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质-1"></a>性质</h2>
+<p>设 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n
+x^n\)</span> 在 <span class="math inline">\(x_0 \ne 0\)</span>
+点收敛，则 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n
+x^n\)</span> 在 <span class="math inline">\(\vert x\vert &lt; \vert x_0
+\vert\)</span> 上绝对收敛。</p>
+<p><strong>推论</strong>：如果 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span> 在 <span
+class="math inline">\(x_0\)</span> 点发散，则 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span> 在 <span
+class="math inline">\(\vert x\vert &gt; \vert x_0\vert\)</span>
+上发散。</p>
+<p>设 <span class="math inline">\(\sum\limits_{n=0}^\infty a_n
+x^n\)</span> 满足 <span class="math inline">\(\lim\limits_{n\to\infty}
+\left\vert \frac{a_{n+1}}{a_n}\right\vert\)</span> （或 <span
+class="math inline">\(\lim\limits_{n\to\infty} \sqrt[n]{\vert
+a_n\vert}\)</span>）<span class="math inline">\(= \rho \ge
+0\)</span>（或 <span class="math inline">\(+\infty\)</span>），则 <span
+class="math inline">\(R = \frac{1}{\rho}\)</span> 是 <span
+class="math inline">\(\sum\limits_{n=0}^\infty a_n x^n\)</span>
+的收敛半径。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/02/Type-II-Integral/">← Next 第二型积分</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/02/29/Series/">级数 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">函数项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.</span> <span class="toc-text">性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%90%861quad-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">1.2.1.</span> <span class="toc-text">定理1\(\quad\) 函数项级数和函数的连续性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%90%862quad-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E9%80%90%E9%A1%B9%E7%A7%AF%E5%88%86%E6%80%A7"><span class="toc-number">1.2.2.</span> <span class="toc-text">定理2\(\quad\) 函数项级数逐项积分性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%90%863quad-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E9%80%90%E9%A1%B9%E5%BE%AE%E5%88%86%E6%80%A7"><span class="toc-number">1.2.3.</span> <span class="toc-text">定理3\(\quad\) 函数项级数逐项微分性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">幂级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="toc-number">2.2.</span> <span class="toc-text">性质</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

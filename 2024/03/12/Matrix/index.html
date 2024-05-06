@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>矩阵 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>矩阵</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-03-12T06:01:13.000Z" id="date"> 2024-03-12</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.702Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h1>
+<h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2>
+<p>设 <span
+class="math inline">\(A=\begin{pmatrix}A_{11}&amp;\cdots&amp;A_{1t}\\\vdots&amp;\ddots&amp;\vdots\\A_{s1}&amp;\cdots&amp;A_{st}\end{pmatrix}\)</span>，
+<span class="math inline">\(B =
+\begin{pmatrix}B_{11}&amp;\cdots&amp;B_{1t}\\\vdots&amp;\ddots&amp;\vdots\\B_{s1}&amp;\cdots&amp;B_{st}\end{pmatrix}\)</span>，则
+<span class="math display">\[A + B = \begin{pmatrix}A_{11} +
+B_{11}&amp;\cdots&amp;A_{1t}+B_{1t}\\\vdots&amp;\ddots&amp;\vdots\\A_{s1}+B_{s1}&amp;\cdots&amp;A_{st}+B_{st}\end{pmatrix}\]</span></p>
+<h2 id="数乘"><a href="#数乘" class="headerlink" title="数乘"></a>数乘</h2>
+<p>设 <span
+class="math inline">\(A=\begin{pmatrix}A_{11}&amp;\cdots&amp;A_{1t}\\
+\vdots&amp;\ddots&amp;\vdots\\A_{s1}&amp;\cdots&amp;A_{st}\end{pmatrix}\)</span>，则
+<span class="math display">\[kA =
+\begin{pmatrix}kA_{11}&amp;\cdots&amp;kA_{1t}\\\vdots&amp;\ddots&amp;\vdots\\kA_{s1}&amp;\cdots&amp;kA_{st}\end{pmatrix}\]</span></p>
+<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2>
+<p>设 <span
+class="math inline">\(A=\begin{pmatrix}A_{11}&amp;\cdots&amp;A_{1t}\\
+\vdots&amp;\ddots&amp;\vdots\\A_{s1}&amp;\cdots&amp;A_{st}\end{pmatrix}\)</span>，<span
+class="math inline">\(B =
+\begin{pmatrix}B_{11}&amp;\cdots&amp;B_{1r}\\\vdots&amp;\ddots&amp;\vdots\\B_{t1}&amp;\cdots&amp;B_{tr}\end{pmatrix}\)</span>，则
+<span class="math display">\[AB =
+\begin{pmatrix}C_{11}&amp;\cdots&amp;C_{1r}\\\vdots&amp;\ddots&amp;\vdots\\C_{s1}&amp;\cdots&amp;C_{sr}\end{pmatrix}\]</span>
+其中 <span
+class="math inline">\(C_{ij}=\sum_{k=1}^tA_{ik}B_{kj}\)</span></p>
+<h2 id="幂"><a href="#幂" class="headerlink" title="幂"></a>幂</h2>
+<p>设 <span class="math inline">\(A = \begin{pmatrix} A_1 &amp; &amp;
+&amp; \\ &amp; A_2 &amp; &amp; \\ &amp; &amp; \ddots &amp;\\ &amp; &amp;
+&amp; A_s \end{pmatrix}\)</span>，则 <span class="math display">\[ A^m =
+\begin{pmatrix}
+A_1^m &amp; &amp; &amp;\\
+&amp; A_2^m &amp; &amp;\\
+&amp; &amp; \ddots &amp;\\
+&amp; &amp; &amp; A_s^m\\
+\end{pmatrix}\]</span></p>
+<h2 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h2>
+<p>设 <span
+class="math inline">\(A=\begin{pmatrix}A_{11}&amp;A_{12}&amp;\cdots&amp;A_{1t}\\A_{21}&amp;A_{22}&amp;\cdots&amp;A_{2t}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\A_{s1}&amp;A_{s2}&amp;\cdots&amp;A_{st}\end{pmatrix}\)</span>，则
+<span class="math display">\[A&#39; =
+\begin{pmatrix}A_{11}^\prime&amp;A_{21}^\prime&amp;\cdots&amp;A_{s1}^\prime\\A_{12}^\prime&amp;A_{22}^\prime&amp;\cdots&amp;A_{s2}^\prime\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\A_{1t}^\prime&amp;A_{2t}^\prime&amp;\cdots&amp;A_{st}^\prime\end{pmatrix}\]</span></p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2>
+<p><span class="math display">\[\begin{vmatrix}
+A_{11} &amp;A_{12} &amp;\cdots &amp;A_{1s}\\
+0 &amp;A_{22} &amp;\cdots &amp;A_{2s}\\
+\vdots &amp;\vdots &amp;\ddots &amp;\vdots\\
+0 &amp;0 &amp;\cdots &amp;A_{ss}
+\end{vmatrix} = \left\vert A_{11}\right\vert \left\vert
+A_{22}\right\vert\cdots\left\vert A_{ss}\right\vert\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A_{11} &amp; 0 &amp; \cdots &amp; 0\\
+A_{21} &amp; A_{22} &amp; \cdots &amp; 0\\
+\vdots &amp;\vdots &amp;\ddots &amp;\vdots\\
+A_{s1} &amp; A_{s2} &amp; \cdots &amp; A_{ss}
+\end{vmatrix} = \left\vert A_{11}\right\vert \left\vert
+A_{22}\right\vert\cdots\left\vert A_{ss}\right\vert\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A_{1} &amp; &amp; &amp; \\
+&amp; A_{2} &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+&amp; &amp; &amp; A_{s}
+\end{vmatrix} = \left\vert A_{1}\right\vert \left\vert
+A_{2}\right\vert\cdots\left\vert A_{s}\right\vert\]</span></p>
+<h2 id="逆"><a href="#逆" class="headerlink" title="逆"></a>逆</h2>
+<p><span class="math display">\[ \begin{pmatrix}
+A_1 &amp; &amp; &amp;\\
+&amp; A_2 &amp; &amp;\\
+&amp; &amp; \ddots &amp;\\
+&amp; &amp; &amp;A_s
+\end{pmatrix}^{-1} =
+\begin{pmatrix}
+A_1^{-1} &amp; &amp; &amp;\\
+&amp; A_2^{-1} &amp; &amp;\\
+&amp; &amp; \ddots &amp;\\
+&amp; &amp; &amp;A_s^{-1}
+\end{pmatrix}\]</span></p>
+<p><span class="math display">\[ \begin{pmatrix}
+&amp; &amp; &amp;A_1 \\
+&amp; &amp; A_2 &amp;\\
+&amp;\ddots &amp; &amp;\\
+A_s&amp; &amp; &amp;
+\end{pmatrix}^{-1} =
+\begin{pmatrix}
+&amp; &amp; &amp;A_s^{-1}\\
+&amp;&amp; A_{s-1}^{-1} &amp;\\
+&amp; \ddots &amp;&amp; \\
+A_1^{-1}&amp; &amp; &amp;
+\end{pmatrix}\]</span> # 降阶公式 设 <span
+class="math inline">\(A\)</span> 为 <span class="math inline">\(m\times
+n\)</span> 矩阵，<span class="math inline">\(B\)</span> 是 <span
+class="math inline">\(n\times m\)</span> 矩阵，<span
+class="math inline">\(m&gt;n\)</span>，<span
+class="math inline">\(\lambda\)</span> 是任意数，则 <span
+class="math display">\[\left\vert\lambda E_m - AB\right\vert =
+\lambda^{m-n}\left\vert\lambda E_n - BA\right\vert\]</span></p>
+<h1 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>矩阵 <span class="math inline">\(A\)</span>
+的非零子式的最高阶数叫作矩阵 <span class="math inline">\(A\)</span>
+的秩。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2>
+<p>设 <span class="math inline">\(A\)</span> 为 <span
+class="math inline">\(m\times n\)</span> 矩阵，<span
+class="math inline">\(B\)</span> 为 <span class="math inline">\(n\times
+p\)</span> 矩阵，则 - <span class="math inline">\(0 \le R(A) \le
+\min\{m, n\}\)</span> - <span class="math inline">\(R(A&#39;) =
+R(A)\)</span> - <span class="math inline">\(R(kA) =
+\begin{cases}0&amp;k=0\\R(A)&amp;k\ne0\end{cases}\)</span> - <span
+class="math inline">\(R(A_1) \le R(A)\)</span>，其中 <span
+class="math inline">\(A_1\)</span> 为 <span
+class="math inline">\(A\)</span> 的任意一个子矩阵。 - <span
+class="math inline">\(R\begin{pmatrix}A&amp;0\\0&amp;B\end{pmatrix} =
+R(A) + R(B)\)</span> - <span
+class="math inline">\(R\begin{pmatrix}A&amp;C\\0&amp;B\end{pmatrix} \ge
+R(A) + R(B)\)</span> - <span class="math inline">\(R(A \mid B) \le R(A)
++ R(B)\)</span> - <span class="math inline">\(R(A + B) \le R(A) +
+R(B)\)</span> - <span class="math inline">\(R(AB) \le \min\{R(A),
+R(B)\}\)</span> - <span class="math inline">\(R(AB) \ge R(A) + R(B) -
+n\)</span></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/13/Differential-Equation/">← Next 微分方程</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/12/Space-Geometry/">空间几何 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E7%9F%A9%E9%98%B5"><span class="toc-number">1.</span> <span class="toc-text">分块矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">加法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E4%B9%98"><span class="toc-number">1.2.</span> <span class="toc-text">数乘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%98%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%82"><span class="toc-number">1.4.</span> <span class="toc-text">幂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E7%BD%AE"><span class="toc-number">1.5.</span> <span class="toc-text">转置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">行列式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%86"><span class="toc-number">1.7.</span> <span class="toc-text">逆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="toc-number">2.</span> <span class="toc-text">矩阵的秩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">2.2.</span> <span class="toc-text">性质</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

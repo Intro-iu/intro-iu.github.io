@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>级数 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>级数</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-02-29T04:08:56.000Z" id="date"> 2024-02-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.702Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>设 <span class="math inline">\(\{a_n\}\)</span> 为一个无穷数列，用
+<code>+</code> 将 <span class="math inline">\(a_n\)</span>
+的项依次连起来，得到一个式子 <span class="math inline">\(a_1 + a_2 +
+\cdots + a_n + \cdots\)</span>，称此式子为
+<strong>（无穷数项）级数</strong>，简记为 <span
+class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span></p>
+<p><span class="math inline">\(a_1\)</span> 称为第一项，<span
+class="math inline">\(a_n\)</span> 称为通项，<span
+class="math inline">\(S_n = a_1 + a_2 + \cdots + a_n\)</span>
+称为<strong>部分和</strong>。</p>
+<h2 id="敛散性"><a href="#敛散性" class="headerlink" title="敛散性"></a>敛散性</h2>
+<p>设 <span class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span>
+为一级数，<span class="math inline">\(S_n = a_1 + a_2 + \cdots +
+a_n\)</span> 为其部分和，若 <span
+class="math inline">\(\lim\limits_{n\to\infty} S_n\)</span>
+存在，则称级数 <span class="math inline">\(\sum\limits_{n=1}^\infty
+a_n\)</span> <strong>收敛</strong>，此时 <span
+class="math inline">\(\lim\limits_{n\to\infty} S_n =
+\sum\limits_{n=1}^\infty a_n\)</span>。若 <span
+class="math inline">\(\lim\limits_{n\to\infty} S_n\)</span>
+不存在，则称级数 <span class="math inline">\(\sum\limits_{n=1}^\infty
+a_n\)</span> <strong>发散</strong>。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2>
+<ol type="1">
+<li><span class="math inline">\(k \ne 0\)</span> 时，<span
+class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span> 与 <span
+class="math inline">\(\sum\limits_{n=1}^\infty ka_n\)</span>
+的敛散性一致，且收敛时 <span
+class="math inline">\(\sum\limits_{n=1}^\infty ka_n =
+k\sum\limits_{n=1}^\infty a_n\)</span>。</li>
+<li>若 <span class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span>
+与 <span class="math inline">\(\sum\limits_{n=1}^\infty b_n\)</span>
+都收敛，则 <span class="math inline">\(\sum\limits_{n=1}^\infty (a_n \pm
+b_n)\)</span> 也收敛，且 <span
+class="math inline">\(\sum\limits_{n=1}^\infty (a_n \pm b_n) =
+\sum\limits_{n=1}^\infty a_n \pm \sum\limits_{n=1}^\infty
+b_n\)</span>。</li>
+<li>一个级数去掉或添加有限项不改变级数的敛散性。</li>
+<li>收敛级数满足结合律。</li>
+<li>若 <span class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span>
+收敛，则 <span class="math inline">\(\lim\limits_{n\to\infty} a_n =
+0\)</span>。</li>
+</ol>
+<h2 id="两个重要级数"><a href="#两个重要级数" class="headerlink" title="两个重要级数"></a>两个重要级数</h2>
+<h3 id="等比级数"><a href="#等比级数" class="headerlink" title="等比级数"></a>等比级数</h3>
+<p><span class="math display">\[\sum\limits_{n=1}^\infty
+r^n\]</span></p>
+<p>当 <span class="math inline">\(\vert r\vert &lt; 1\)</span>
+时收敛；</p>
+<p>当 <span class="math inline">\(\vert r \vert \ge 1\)</span>
+时发散。</p>
+<h3 id="p-级数"><a href="#p-级数" class="headerlink" title="p-级数"></a>p-级数</h3>
+<p><span class="math display">\[\sum\limits_{n=1}^\infty
+\frac{1}{n^p}\]</span></p>
+<p>当 <span class="math inline">\(0 &lt; p \le 1\)</span> 时发散；</p>
+<p>当 <span class="math inline">\(p&gt;1\)</span> 时收敛。</p>
+<h1 id="正项级数"><a href="#正项级数" class="headerlink" title="正项级数"></a>正项级数</h1>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义-1"></a>定义</h2>
+<p>称满足 <span class="math inline">\(a_n &gt; 0\)</span> 的无穷级数
+<span class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span>
+为<strong>正项级数</strong>。</p>
+<h2 id="敛散性判别法"><a href="#敛散性判别法" class="headerlink" title="敛散性判别法"></a>敛散性判别法</h2>
+<ol type="1">
+<li>正项级数 <span
+class="math inline">\(\sum\limits_{n=1}^\infty\)</span> 收敛 <span
+class="math inline">\(\Leftrightarrow\)</span> 部分和有上界。</li>
+<li>比较判别法</li>
+</ol>
+<p>设 <span class="math inline">\(\sum\limits_{n=1}^\infty
+a_n\)</span>，<span class="math inline">\(\sum\limits_{n=1}^\infty
+b_n\)</span> 为两个正项级数，若从某项以后有 <span
+class="math inline">\(a_n \le b_n\)</span>，则</p>
+<p>当 <span class="math inline">\(\sum\limits_{n=1}^\infty b_n\)</span>
+收敛时，<span class="math inline">\(\sum\limits_{n=1}^\infty
+a_n\)</span> 收敛；</p>
+<p>当 <span class="math inline">\(\sum\limits_{n=1}^\infty a_n\)</span>
+发散时，<span class="math inline">\(\sum\limits_{n=1}^\infty
+b_n\)</span> 发散。</p>
+<h1 id="交错级数"><a href="#交错级数" class="headerlink" title="交错级数"></a>交错级数</h1>
+<h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义-2"></a>定义</h2>
+<p>设 <span class="math inline">\(a_n &gt; 0\)</span>，称 <span
+class="math inline">\(\sum\limits_{n=1}^\infty (-1)^n a_n\)</span> 或
+<span class="math inline">\(\sum\limits_{n=1}^\infty (-1)^{n+1}
+a_n\)</span> 为<strong>交错级数</strong>。</p>
+<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质-1"></a>性质</h2>
+<p>设交错级数 <span class="math inline">\(\sum\limits_{n=1}^\infty
+(-1)^n a_n\)</span> 满足 <span
+class="math inline">\(\lim\limits_{n\to\infty} a_n = 0\)</span>，且
+<span class="math inline">\(a_n \ge a_{n+1}\)</span>，<span
+class="math inline">\(n = 1, 2, \cdots\)</span>，则交错级数 <span
+class="math inline">\(\sum\limits_{n=1}^\infty (-1)^n a_n\)</span>
+收敛。</p>
+<h1 id="绝对收敛级数"><a href="#绝对收敛级数" class="headerlink" title="绝对收敛级数"></a>绝对收敛级数</h1>
+<h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义-3"></a>定义</h2>
+<p>若 <span class="math inline">\(\sum\limits_{n=1}^\infty \vert u_n
+\vert\)</span> 收敛，则称级数 <span
+class="math inline">\(\sum\limits_{n=1}^\infty u_n\)</span>
+为<strong>绝对收敛</strong>。</p>
+<h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质-2"></a>性质</h2>
+<ul>
+<li>绝对收敛级数必收敛</li>
+<li>绝对收敛级数满足交换律</li>
+</ul>
+<h1 id="条件收敛级数"><a href="#条件收敛级数" class="headerlink" title="条件收敛级数"></a>条件收敛级数</h1>
+<h2 id="定义-4"><a href="#定义-4" class="headerlink" title="定义-4"></a>定义</h2>
+<p>若 <span class="math inline">\(\sum\limits_{n=1}^\infty \vert u_n
+\vert\)</span> 发散，而 <span
+class="math inline">\(\sum\limits_{n=1}^\infty u_n\)</span>
+收敛，则称级数 <span class="math inline">\(\sum\limits_{n=1}^\infty
+u_n\)</span> <strong>条件收敛</strong>。</p>
+<h2 id="性质-3"><a href="#性质-3" class="headerlink" title="性质-3"></a>性质</h2>
+<p>条件收敛级数不满足交换律。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/01/Power-Series/">← Next 幂级数</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/02/28/Riemann-Integral/">黎曼积分 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">敛散性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.3.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E7%BA%A7%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">两个重要级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E6%AF%94%E7%BA%A7%E6%95%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">等比级数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-%E7%BA%A7%E6%95%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">p-级数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">正项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">敛散性判别法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A4%E9%94%99%E7%BA%A7%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">交错级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="toc-number">3.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%94%B6%E6%95%9B%E7%BA%A7%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">绝对收敛级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="toc-number">4.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-2"><span class="toc-number">4.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B%E7%BA%A7%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">条件收敛级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-4"><span class="toc-number">5.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-3"><span class="toc-number">5.2.</span> <span class="toc-text">性质</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1></h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-04-02T09:36:57.702Z" id="date"> 2024-04-02</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-03T00:28:32.440Z" id="updated"> 2024-04-03</time></div></span></div></div><hr><div id="post-content"><h1 id="数列的极限"><a href="#数列的极限" class="headerlink" title="数列的极限"></a>数列的极限</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>设 <span class="math inline">\(\{x_n\}\)</span>
+为一数列，如果存在常数 <span
+class="math inline">\(a\)</span>，是对于任意给定的正数 <span
+class="math inline">\(\epsilon\)</span>（不论它多么小），总存在正整数
+<span class="math inline">\(N\)</span>，使得当 <span
+class="math inline">\(n &gt; N\)</span>时，不等式 <span
+class="math display">\[
+\left\vert x_n - a \right\vert &lt; \varepsilon
+\]</span> 都成立，那么就称常数 <span class="math inline">\(a\)</span>
+是<strong>数列</strong> <span class="math inline">\(\{x_n\}\)</span>
+的<strong>极限</strong>，或者称数列 <span
+class="math inline">\(\{x_n\}\)</span> <strong>收敛于</strong> <span
+class="math inline">\(a\)</span>，记为 <span class="math display">\[
+\lim\limits_{n \to \infty }x_n = a
+\]</span> 或 <span class="math display">\[
+x_n \to a \quad (n \to \infty)
+\]</span> 如果不存在这样的常数 <span
+class="math inline">\(a\)</span>，就说数列 <span
+class="math inline">\(\{x_n\}\)</span> 没有极限，或者说数列 <span
+class="math inline">\(\{x_n\}\)</span>
+是<strong>发散</strong>的，习惯上也说 <span
+class="math inline">\(\lim\limits_{n \to \infty}x_n\)</span>
+不存在。</p>
+<p>数列极限 <span class="math inline">\(\lim\limits_{n\to\infty}x_n =
+a\)</span> 的定义可表达为 <span class="math display">\[
+\lim\limits_{n \to \infty}x_n = a \Leftrightarrow \forall \varepsilon
+&gt; 0, \,
+\exists \,正整数\,N，当\,n &gt; N\,时，有\,\left\vert x_n - a\right\vert
+&lt; \varepsilon
+\]</span></p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2>
+<p><strong>定理 <span
+class="math inline">\(1\)</span>（极限的唯一性）<span
+class="math inline">\(\quad\)</span></strong> 如果数列 <span
+class="math inline">\(\{x_n\}\)</span> 收敛，那么它的极限唯一。</p>
+<p><strong>定理 <span
+class="math inline">\(2\)</span>（收敛数列的有界性）<span
+class="math inline">\(\quad\)</span></strong> 如果数列 <span
+class="math inline">\(\{x_n\}\)</span> 收敛，那么数列 <span
+class="math inline">\(\{x_n\}\)</span> 一定有界。</p>
+<p><strong>定理 <span
+class="math inline">\(3\)</span>（收敛数列的保号性）<span
+class="math inline">\(\quad\)</span></strong> 如果 <span
+class="math inline">\(\lim\limits_{n \to \infty}x_n = a\)</span>，且
+<span class="math inline">\(a &gt; 0\)</span>（或 <span
+class="math inline">\(a &lt; 0\)</span>），那么存在正整数 <span
+class="math inline">\(N\)</span>，当 <span class="math inline">\(n &gt;
+N\)</span> 时，都有 <span class="math inline">\(x_n &gt; 0\)</span>（或
+<span class="math inline">\(x_n &lt; 0\)</span>）。</p>
+<p><strong>推论<span class="math inline">\(\quad\)</span></strong>
+如果数列 <span class="math inline">\(\{x_n\}\)</span> 从某项起有 <span
+class="math inline">\(x_n \ge 0\)</span>（或 <span
+class="math inline">\(x_n \le 0\)</span>），且 <span
+class="math inline">\(\lim\limits_{n\to\infty} x_n = a\)</span>，那么
+<span class="math inline">\(a \ge 0\)</span>（或 <span
+class="math inline">\(a \le 0\)</span>）。</p>
+<p><strong>定理 <span
+class="math inline">\(4\)</span>（收敛数列与其子数列间的关系）<span
+class="math inline">\(\quad\)</span></strong> 如果数列 <span
+class="math inline">\(\{x_n\}\)</span> 收敛于 <span
+class="math inline">\(a\)</span>，那么它的任一子数列也收敛，且极限也是
+<span class="math inline">\(a\)</span>。</p>
+<h1 id="函数的极限"><a href="#函数的极限" class="headerlink" title="函数的极限"></a>函数的极限</h1>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义-1"></a>定义</h2>
+<p><strong>定义 <span class="math inline">\(1\quad\)</span></strong>
+设函数 <span class="math inline">\(f(x)\)</span> 在点 <span
+class="math inline">\(x_0\)</span> 的某一去心邻域内有定义。如果存在常数
+<span class="math inline">\(A\)</span>，对于任一给定的正数 <span
+class="math inline">\(\varepsilon\)</span>（不论它多么小），总存在正数
+<span class="math inline">\(\delta\)</span>，使得当 <span
+class="math inline">\(x\)</span> 满足不等式 <span
+class="math inline">\(0 &lt; \left\vert x - x_0 \right\vert &lt;
+\delta\)</span> 时，对应的函数值 <span
+class="math inline">\(f(x)\)</span> 都满足不等式 <span
+class="math display">\[
+\left\vert f(x) &lt; A \right\vert &lt; \varepsilon
+\]</span> 那么常数 <span class="math inline">\(A\)</span>
+就叫做<strong>函数 <span class="math inline">\(f(x)\)</span> 当 <span
+class="math inline">\(x\to x_0\)</span> 时的极限</strong>，记作 <span
+class="math display">\[
+\lim\limits_{x\to x_0}f(x) = A\ 或\ f(x) \to A\ (\ 当\ x \to x_0\ )
+\]</span> 定义 <span class="math inline">\(1\)</span> 可以简单的表述为
+<span class="math display">\[
+\lim\limits_{x\to x_0}f(x) = A \Leftrightarrow \forall \varepsilon &gt;
+0, \exists \delta &gt; 0, 当 0 &lt; \left\vert x - x_0 \right\vert &lt;
+\delta 时, 有 \left\vert f(x) - A \right\vert &lt; \varepsilon
+\]</span> 在 <span class="math inline">\(\lim\limits_{x\to x_0}f(x) =
+A\)</span> 的定义中，把 <span class="math inline">\(0 &lt; \left\vert x
+- x_0 \right\vert &lt; \delta\)</span> 改为 <span
+class="math inline">\(x_0 - \delta &lt; x &lt; x_0\)</span>，那么 <span
+class="math inline">\(A\)</span> 就叫做函数 <span
+class="math inline">\(f(x)\)</span> 当 <span class="math inline">\(x \to
+x_0\)</span> 时的<strong>左极限</strong>，记作 <span
+class="math display">\[
+\lim\limits_{x \to x^-_0}f(x) = A \quad 或 \quad f(x_0^-) = A
+\]</span> 类似的，把 <span class="math inline">\(0 &lt; \left\vert x -
+x_0\right\vert &lt; \delta\)</span> 改为 <span class="math inline">\(x_0
+&lt; x &lt; x_0 + \delta\)</span>，那么 <span
+class="math inline">\(A\)</span> 就叫做函数 <span
+class="math inline">\(f(x)\)</span> 当 <span class="math inline">\(x \to
+x_0\)</span> 时的<strong>右极限</strong>，记作 <span
+class="math display">\[
+\lim\limits_{x \to x^+_0}f(x) = A \quad 或 \quad f(x_0^+) = A
+\]</span> 函数 <span class="math inline">\(f(x)\)</span> 当 <span
+class="math inline">\(x \to x_0\)</span>
+时极限存在的充分必要条件是左极限及右极限各自存在并且相等，即 <span
+class="math display">\[
+f(x_0^-) = f(x_0^+)
+\]</span> <strong>定义 <span
+class="math inline">\(2\quad\)</span></strong> 设函数 <span
+class="math inline">\(f(x)\)</span> 当 <span
+class="math inline">\(\left\vert x\right\vert\)</span>
+大于某一正数时有定义。如果存在常数 <span
+class="math inline">\(A\)</span>，对于任意给定的正数 <span
+class="math inline">\(\varepsilon\)</span>，总存在正数 <span
+class="math inline">\(X\)</span>，使得当 <span
+class="math inline">\(x\)</span> 满足不等式 <span
+class="math inline">\(\left\vert x\right\vert &gt; X\)</span>
+时，对应的函数值 <span class="math inline">\(f(x)\)</span> 都满足不等式
+<span class="math display">\[
+\left\vert f(x) - A \right\vert &lt; \varepsilon
+\]</span> 那么常数 <span class="math inline">\(A\)</span>
+就叫做<strong>函数 <span class="math inline">\(f(x)\)</span> 当 <span
+class="math inline">\(x \to \infty\)</span> 时的极限</strong>，记作
+<span class="math display">\[
+\lim\limits_{x \to \infty} = A \quad 或 \quad f(x) \to A (当 x\to
+\infty)
+\]</span> 定义 <span class="math inline">\(2\)</span> 可简单地表达为
+<span class="math display">\[
+\lim\limits_{x \to \infty} f(x) = A \Leftrightarrow \forall \varepsilon
+&gt; 0, \exists X &gt; 0, 当 \left\vert x \right\vert &gt; X时，有
+\left\vert f(x) - A \right\vert &lt; \varepsilon
+\]</span></p>
+<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质-1"></a>性质</h2>
+<p><strong>定理 <span
+class="math inline">\(1\)</span>（函数极限的唯一性）<span
+class="math inline">\(\quad\)</span></strong> 如果 <span
+class="math inline">\(\lim\limits_{x \to x_0} f(x)\)</span>
+存在，那么这极限唯一。</p>
+<p><strong>定理 <span
+class="math inline">\(2\)</span>（函数极限的局部有界性）<span
+class="math inline">\(\quad\)</span></strong> 如果 <span
+class="math inline">\(\lim\limits_{x \to x_0}f(x) =
+A\)</span>，那么存在常数 <span class="math inline">\(M&gt;0\)</span> 和
+<span class="math inline">\(\delta &gt; 0\)</span>，使得当 <span
+class="math inline">\(0 &lt; \left\vert x - x_0 \right\vert &lt;
+\delta\)</span> 时，有 <span class="math inline">\(\left\vert f(x)
+\right\vert \le M\)</span>。</p>
+<p><strong>定理 <span
+class="math inline">\(3\)</span>（函数极限的局部保号性）<span
+class="math inline">\(\quad\)</span></strong> 如果 <span
+class="math inline">\(\lim\limits_{x \to x_0}f(x) = A\)</span>，且 <span
+class="math inline">\(A &gt; 0\)</span>（或 <span
+class="math inline">\(A &lt; 0\)</span>，那么存在常数 <span
+class="math inline">\(\delta &gt; 0\)</span>，使得当 <span
+class="math inline">\(0 &lt; \left\vert x - x_0 \right\vert &lt;
+\delta\)</span> 时，有 <span class="math inline">\(f(x) &gt;
+0\)</span>（或 <span class="math inline">\(f(x) &lt; 0\)</span>）。</p>
+<p><strong>定理 <span
+class="math inline">\(3^\prime\quad\)</span></strong> 如果 <span
+class="math inline">\(\lim\limits_{x \to x_0}f(x) = A(A \ne
+0)\)</span>，那么就存在着 <span class="math inline">\(x_0\)</span>
+的某一去心邻域 <span
+class="math inline">\(\mathring{U}(x_0)\)</span>，当 <span
+class="math inline">\(x \in \mathring{U}(x_0)\)</span> 时，就有 <span
+class="math inline">\(\left\vert f(x) \right\vert &gt; \frac{\left\vert
+A\right\vert}{2}\)</span>。</p>
+<p><strong>推论<span class="math inline">\(\quad\)</span></strong>
+如果在 <span class="math inline">\(x_0\)</span> 的某去心邻域内 <span
+class="math inline">\(f(x) \ge 0\)</span>（或 <span
+class="math inline">\(f(x) \le 0\)</span>），而且 <span
+class="math inline">\(\lim\limits_{x\to x_0}f(x) = A\)</span>，那么
+<span class="math inline">\(A \ge 0\)</span>（或 <span
+class="math inline">\(A \le 0\)</span>）。</p>
+<p><strong>定理 <span
+class="math inline">\(4\)</span>（函数极限与数列极限的关系）<span
+class="math inline">\(\quad\)</span></strong> 如果极限 <span
+class="math inline">\(\lim\limits_{x \to x_0}f(x)\)</span> 存在，<span
+class="math inline">\(\{x_n\}\)</span> 为函数 <span
+class="math inline">\(f(x)\)</span> 的定义域内任一收敛于 <span
+class="math inline">\(x_0\)</span> 的数列，且满足：<span
+class="math inline">\(x_n \ne x_0\)</span>（<span
+class="math inline">\(n \in N_+\)</span>），那么相应的函数值数列 <span
+class="math inline">\(\{f(x_n)\}\)</span> 必收敛，且 <span
+class="math inline">\(\lim\limits_{n \to \infty}f(x_n) = \lim\limits_{x
+\to x_0}f(x)\)</span>。</p>
+<h1 id="无穷小"><a href="#无穷小" class="headerlink" title="无穷小"></a>无穷小</h1>
+<h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义-2"></a>定义</h2>
+<p>如果函数 <span class="math inline">\(f(x)\)</span> 当 <span
+class="math inline">\(x \to x_0\)</span>（或 <span
+class="math inline">\(x \to \infty\)</span>）时的极限为零，那么称函数
+<span class="math inline">\(f(x)\)</span> 为当 <span
+class="math inline">\(x \to x_0\)</span>（或 <span
+class="math inline">\(x \to \infty\)</span>）时的无穷小。 ## 性质
+在自变量的同一变化过程 <span class="math inline">\(x \to
+x_0\)</span>（或 <span class="math inline">\(x \to
+\infty\)</span>）中，函数 <span class="math inline">\(f(x)\)</span>
+具有极限 <span class="math inline">\(A\)</span> 的充分必要条件时 <span
+class="math inline">\(f(x) = A + \alpha\)</span>，其中 <span
+class="math inline">\(\alpha\)</span> 是无穷小。 ## 比较 如果 <span
+class="math inline">\(\lim\frac{\beta}{\alpha} = 0\)</span>，那么就说
+<span class="math inline">\(\beta\)</span> 是比 <span
+class="math inline">\(\alpha\)</span>
+<strong>高阶的无穷小</strong>，记作 <span class="math inline">\(\beta =
+o(\alpha)\)</span></p>
+<p>如果 <span class="math inline">\(\lim\frac{\beta}{\alpha} =
+\infty\)</span>，那么就说 <span class="math inline">\(\beta\)</span>
+是比 <span class="math inline">\(\alpha\)</span>
+<strong>低阶的无穷小</strong></p>
+<p>如果 <span class="math inline">\(\lim\frac{\beta}{\alpha} = c \ne
+0\)</span>，那么就说 <span class="math inline">\(\beta\)</span> 与 <span
+class="math inline">\(\alpha\)</span>
+是<strong>同阶的无穷小</strong></p>
+<p>如果 <span class="math inline">\(\lim\frac{\beta}{\alpha^k} = c \ne
+0, k &gt; 0\)</span>，那么就说 <span
+class="math inline">\(\beta\)</span> 是关于 <span
+class="math inline">\(\alpha\)</span> 的 <strong><span
+class="math inline">\(k\)</span> 阶的无穷小</strong></p>
+<p>如果 <span class="math inline">\(\lim\frac{\beta}{\alpha} =
+1\)</span>，那么就说 <span class="math inline">\(\beta\)</span> 与 <span
+class="math inline">\(\alpha\)</span>
+是<strong>等价无穷小</strong>，记作 <span class="math inline">\(\alpha
+\sim \beta\)</span></p>
+<p><strong>定理 <span class="math inline">\(1\quad\)</span></strong>
+<span class="math inline">\(\beta\)</span> 与 <span
+class="math inline">\(\alpha\)</span> 是等价无穷小的充分必要条件为 <span
+class="math display">\[
+\beta = \alpha + o(\alpha)
+\]</span></p>
+<p><strong>定理 <span class="math inline">\(2\quad\)</span></strong> 设
+<span class="math inline">\(\alpha \sim \tilde\alpha\)</span>，<span
+class="math inline">\(\beta \sim \tilde\beta\)</span>，且 <span
+class="math inline">\(\lim\limits\frac{\tilde\beta}{\tilde\alpha}\)</span>
+存在，则 <span class="math display">\[
+\lim\limits\frac{\beta}{\alpha} =
+\lim\limits\frac{\tilde\beta}{\tilde\alpha}
+\]</span> # 无穷大 ## 定义 设函数 <span
+class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\(x_0\)</span> 的某一去心邻域内有定义（或 <span
+class="math inline">\(\left\vert x \right\vert\)</span>
+大于某一正数时有定义）。如果对于任意给定的正数 <span
+class="math inline">\(M\)</span>（不论它有多大），总存在正数 <span
+class="math inline">\(\delta\)</span>（或正数 <span
+class="math inline">\(X\)</span>），只要 <span
+class="math inline">\(x\)</span> 适合不等式 <span
+class="math inline">\(0 &lt; \left\vert x - x_0 \right\vert &lt;
+\delta\)</span>（或 <span class="math inline">\(\left\vert x \right\vert
+&gt; X\)</span>），对应的函数值 <span
+class="math inline">\(f(x)\)</span> 总满足不等式 <span
+class="math display">\[
+\left\vert f(x) \right\vert &gt; M
+\]</span> 那么称函数 <span class="math inline">\(f(x)\)</span> 是当
+<span class="math inline">\(x \to x_0\)</span>（或 <span
+class="math inline">\(x \to \infty\)</span>）时的无穷大。</p>
+<h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质-2"></a>性质</h2>
+<p>在自变量的同一变化过程中，如果 <span
+class="math inline">\(f(x)\)</span> 为无穷大，那么 <span
+class="math inline">\(\frac{1}{f(x)}\)</span> 为无穷小；反之，如果 <span
+class="math inline">\(f(x)\)</span> 为无穷小，且 <span
+class="math inline">\(f(x) \ne 0\)</span>，那么 <span
+class="math inline">\(\frac{1}{f(x)}\)</span> 为无穷大。</p>
+<h1 id="极限运算法则"><a href="#极限运算法则" class="headerlink" title="极限运算法则"></a>极限运算法则</h1>
+<p><strong>定理 <span class="math inline">\(1\quad\)</span></strong>
+有限个无穷小的和是无穷小</p>
+<p><strong>定理 <span class="math inline">\(2\quad\)</span></strong>
+有界函数与无穷小的乘积是无穷小</p>
+<p><strong>推论 <span class="math inline">\(1\quad\)</span></strong>
+常数与无穷小的乘积是无穷小</p>
+<p><strong>推论 <span class="math inline">\(2\quad\)</span></strong>
+有限个无穷小的乘积是无穷小</p>
+<p><strong>定理 <span class="math inline">\(3\quad\)</span></strong>
+如果 <span class="math inline">\(\lim f(x)=A, \lim g(x) =
+B\)</span>，那么</p>
+<ol type="1">
+<li><span class="math inline">\(\lim\left[f(x) \pm g(x) \right] = \lim
+f(x) \pm \lim g(x) = A \pm B\)</span></li>
+<li><span class="math inline">\(\lim\left[f(x) \cdot g(x) \right] = \lim
+f(x) \cdot \lim g(x) = A \cdot B\)</span></li>
+<li>若又有 <span class="math inline">\(B \ne 0\)</span>，则</li>
+</ol>
+<p><span class="math display">\[
+\lim \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)} = \frac{A}{B}
+\]</span></p>
+<p><strong>定理 <span class="math inline">\(4\quad\)</span></strong>
+设有数列 <span class="math inline">\(\{x_n\}\)</span> 和 <span
+class="math inline">\(\{y_n\}\)</span>。如果 <span
+class="math display">\[
+\lim\limits_{n\to\infty}x_n = A,\quad \lim\limits_{n\to\infty}y_n = B
+\]</span> 那么 1. <span
+class="math inline">\(\lim\limits_{n\to\infty}(x_n\pm y_n) = A \pm
+B\)</span> 2. <span class="math inline">\(\lim\limits_{n\to\infty}(x_n
+\cdot y_n) = A \cdot B\)</span> 3. 当 <span class="math inline">\(y_n
+\ne 0\)</span>（<span class="math inline">\(n = 1, 2,
+\cdots\)</span>）且 <span class="math inline">\(B \ne 0\)</span>
+时，<span class="math inline">\(\lim\limits_{n\to\infty}\frac{x_n}{y_n}
+= \frac{A}{B}\)</span></p>
+<p><strong>定理 <span class="math inline">\(5\quad\)</span></strong>
+如果 <span class="math inline">\(\varphi(x) \ge \psi(x)\)</span>，而
+<span class="math inline">\(\lim\limits \varphi(x) = A\)</span>，<span
+class="math inline">\(\lim\limits \psi(x) = B\)</span>，那么 <span
+class="math inline">\(A \ge B\)</span>。</p>
+<p><strong>定理 <span
+class="math inline">\(6\)</span>（复合函数的极限运算法则）<span
+class="math inline">\(\quad\)</span></strong> 设函数 <span
+class="math inline">\(y = f\left[g(x)\right]\)</span> 是由函数 <span
+class="math inline">\(u = g(x)\)</span> 与函数 <span
+class="math inline">\(y = f(u)\)</span> 复合而成，<span
+class="math inline">\(f\left[g(x)\right]\)</span> 在点 <span
+class="math inline">\(x_0\)</span> 的某去心邻域内有定义，若 <span
+class="math inline">\(\lim\limits_{x\to x_0}g(x) = u_0\)</span>，<span
+class="math inline">\(\lim\limits_{u \to u_0}f(u) = A\)</span>，且存在
+<span class="math inline">\(\delta_0 &gt; 0\)</span>，当 <span
+class="math inline">\(x \in \mathring{U}(x_0, \delta_0)\)</span> 时，有
+<span class="math inline">\(g(x) \ne u_0\)</span>，则 <span
+class="math display">\[
+\lim\limits_{x \to x_0}f\left[g(x)\right] = \lim\limits_{u\to u_0}f(u) =
+A
+\]</span></p>
+<h1 id="极限存在准则"><a href="#极限存在准则" class="headerlink" title="极限存在准则"></a>极限存在准则</h1>
+<p><strong>准则 <span
+class="math inline">\(\mathrm{I}\quad\)</span></strong> 如果数列 <span
+class="math inline">\(\{x_n\}\)</span>，<span
+class="math inline">\(\{y_n\}\)</span> 及 <span
+class="math inline">\(\{z_n\}\)</span> 满足下列条件： 1. 从某项起，即
+<span class="math inline">\(\exists n_0 \in \mathbb{N}^+\)</span>，当
+<span class="math inline">\(n &gt; n_0\)</span> 时，有 <span
+class="math display">\[
+y_n \le x_n \le z_n
+\]</span> 2. <span class="math inline">\(\lim\limits_{n \to \infty}y_n =
+a, \lim\limits_{n\to\infty}z_n = a\)</span></p>
+<p>那么数列 <span class="math inline">\(\{x_n\}\)</span> 的极限存在，且
+<span class="math inline">\(\lim\limits_{n\to\infty}x_n = a\)</span></p>
+<p><strong>准则 <span
+class="math inline">\(\mathrm{I}^\prime\quad\)</span></strong> 如果 1.
+当 <span class="math inline">\(x \in \mathring{U}(x_0, r)\)</span>（或
+<span class="math inline">\(\left\vert x \right\vert &gt;
+M\)</span>）时，</p>
+<p><span class="math display">\[
+g(x) \le f(x) \le h(x)
+\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\lim\limits_{x\to x_0 \atop (x \to
+\infty)}g(x) = A, \lim\limits_{x\to x_0 \atop (x\to\infty)}h(x) =
+A\)</span></li>
+</ol>
+<p>那么 <span class="math inline">\(\lim\limits_{x\to x_0 \atop (x\to
+\infty)}f(x)\)</span> 存在，且等于 <span
+class="math inline">\(A\)</span>。</p>
+<p>准则 <span class="math inline">\(\mathrm{I}\)</span> 及准则 <span
+class="math inline">\(\mathrm{I}^\prime\)</span>
+称为<strong>夹逼准则</strong>。</p>
+<p><strong>准则 <span
+class="math inline">\(\mathrm{II}\quad\)</span></strong>
+单调有界数列必有极限。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/05/01/Arch-Installation/">← Next Arch Linux 安装流程</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/04/02/SSL/">在服务器上生成SSL证书并部署至Nginx Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text">数列的极限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">函数的极限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="toc-number">2.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E7%A9%B7%E5%B0%8F"><span class="toc-number">3.</span> <span class="toc-text">无穷小</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-2"><span class="toc-number">3.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="toc-number">4.</span> <span class="toc-text">极限运算法则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%81%E9%99%90%E5%AD%98%E5%9C%A8%E5%87%86%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">极限存在准则</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

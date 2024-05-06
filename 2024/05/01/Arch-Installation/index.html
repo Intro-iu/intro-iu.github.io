@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Arch Linux 安装流程 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>Arch Linux 安装流程</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-05-01T10:12:27.000Z" id="date"> 2024-05-01</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-05-06T15:08:47.651Z" id="updated"> 2024-05-06</time></div></span></div></div><hr><div id="post-content"><h1 id="镜像准备"><a href="#镜像准备" class="headerlink" title="镜像准备"></a>镜像准备</h1>
+<p>前往镜像站下载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/archlinux/i</span>so<br></code></pre></td></tr></table></figure>
+<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1>
+<h2 id="基础安装"><a href="#基础安装" class="headerlink" title="基础安装"></a>基础安装</h2>
+<h3 id="加载镜像"><a href="#加载镜像" class="headerlink" title="加载镜像"></a>加载镜像</h3>
+<p>进入 <code>VirtualBox</code> 加载镜像</p>
+<h3 id="校准时间"><a href="#校准时间" class="headerlink" title="校准时间"></a>校准时间</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 列出时区</span><br>timedatectl list-timezones<br><br><span class="hljs-comment"># 设置时区</span><br>timedatectl set-timezone Asia/Hong_Kong<br><br><span class="hljs-comment"># 将系统时间与网络时间进行同步</span><br>timedatectl set-ntp <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 检查服务状态</span><br>timedatectl status<br></code></pre></td></tr></table></figure>
+<h3 id="切换镜像源"><a href="#切换镜像源" class="headerlink" title="切换镜像源"></a>切换镜像源</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/pacman.d/mirrorlist<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 中国科学技术大学开源镜像站</span><br>Server = https://mirrors.ustc.edu.cn/archlinux/<span class="hljs-variable">$repo</span>/os/<span class="hljs-variable">$arch</span><br><br><span class="hljs-comment"># 清华大学开源软件镜像站</span><br>Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/<span class="hljs-variable">$repo</span>/os/<span class="hljs-variable">$arch</span><br></code></pre></td></tr></table></figure>
+<h3 id="全新安装"><a href="#全新安装" class="headerlink" title="全新安装"></a>全新安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsblk <span class="hljs-comment"># 显示当前分区情况</span><br></code></pre></td></tr></table></figure>
+<h4 id="建立分区表"><a href="#建立分区表" class="headerlink" title="建立分区表"></a>建立分区表</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">parted /dev/sdx <span class="hljs-comment"># 执行 parted，进行磁盘类型变更</span><br>(parted) mktable <span class="hljs-comment"># 输入 mktable，建立分区表</span><br>New disk label <span class="hljs-built_in">type</span>? gpt <span class="hljs-comment"># 输入 gpt，将磁盘类型转换为 GPT 类型。如磁盘有数据会警告，输入 Yes 即可</span><br>(parted) quit <span class="hljs-comment"># 退出 parted 命令行交互</span><br></code></pre></td></tr></table></figure>
+<h4 id="建立efi分区"><a href="#建立efi分区" class="headerlink" title="建立efi分区"></a>建立EFI分区</h4>
+<p>具体的磁盘设备各有差异，SATA名称为<code>sdx</code>，NVME硬盘有另外的名称<code>nvmexn1</code></p>
+<p>此处以 <code>SATA</code> 为例</p>
+<ul>
+<li>EFI分区：300M</li>
+<li>剩余空间自行分配</li>
+<li>Swap可选</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cfdisk /dev/sdx <span class="hljs-comment"># 对安装 archlinux 的磁盘分区</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">fdisk -l <span class="hljs-comment"># 复查磁盘情况</span><br></code></pre></td></tr></table></figure>
+<h4 id="格式化-efi-分区"><a href="#格式化-efi-分区" class="headerlink" title="格式化-efi-分区"></a>格式化 EFI 分区</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkfs.fat -F32 /dev/sdx1<br></code></pre></td></tr></table></figure>
+<h4 id="格式化-swap-分区若有"><a href="#格式化-swap-分区若有" class="headerlink" title="格式化-swap-分区若有"></a>格式化 Swap 分区（若有）</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkswap /dev/sdxn<br></code></pre></td></tr></table></figure>
+<h4 id="格式化-btrfs-分区"><a href="#格式化-btrfs-分区" class="headerlink" title="格式化-btrfs-分区"></a>格式化 Btrfs 分区</h4>
+<p>将整一个分区格式化为 Btrfs 文件系统 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkfs.btrfs -fL Lingmo /dev/sdxn<br></code></pre></td></tr></table></figure> &gt; -L
+选项后指定该分区的
+LABLE，可以自定义，但不能使用特殊字符以及空格，且最好有意义</p>
+<h4 id="挂载-btrfs-分区"><a href="#挂载-btrfs-分区" class="headerlink" title="挂载-btrfs-分区"></a>挂载 Btrfs 分区</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将 Btrfs 分区挂载到 /mnt 下</span><br>mount -t btrfs -o compress=zstd /dev/sdxn /mnt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 复查挂载情况</span><br><span class="hljs-built_in">df</span> -h <br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>为后续创建子卷做准备</p>
+</blockquote>
+<p>相关参数： - <code>-t</code>：选项后指定挂载分区文件系统类型 -
+<code>-o</code>：选项后添加挂载参数： -
+<code>compress=zstd</code>：开启透明压缩</p>
+<h4 id="创建-btrfs-子卷"><a href="#创建-btrfs-子卷" class="headerlink" title="创建-btrfs-子卷"></a>创建 Btrfs 子卷</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建 / 目录子卷</span><br>btrfs subvolume create /mnt/@ <br><br><span class="hljs-comment"># 创建 /home 目录子卷</span><br>btrfs subvolume create /mnt/@home <br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 复查子卷情况</span><br>btrfs subvolume list -p /mnt<br></code></pre></td></tr></table></figure>
+<h4 id="卸载-mnt"><a href="#卸载-mnt" class="headerlink" title="卸载-mnt"></a>卸载 /mnt</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">umount /mnt<br></code></pre></td></tr></table></figure>
+<h4 id="挂载各目录"><a href="#挂载各目录" class="headerlink" title="挂载各目录"></a>挂载各目录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 挂载 / 目录</span><br>mount -t btrfs -o subvol=/@,compress=zstd /dev/sdxn /mnt <br><br><span class="hljs-comment"># 创建 /home 目录</span><br><span class="hljs-built_in">mkdir</span> /mnt/home <br><br><span class="hljs-comment"># 挂载 /home 目录</span><br>mount -t btrfs -o subvol=/@home,compress=zstd /dev/sdxn /mnt/home <br><br><span class="hljs-comment"># 创建 /boot 目录</span><br><span class="hljs-built_in">mkdir</span> -p /mnt/boot <br><br><span class="hljs-comment"># 挂载 /boot 目录</span><br>mount /dev/sdxn /mnt/boot <br><br><span class="hljs-comment"># 挂载交换分区（如有）</span><br>swapon /dev/sdxn <br></code></pre></td></tr></table></figure>
+<h3 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h3>
+<ol type="1">
+<li>使用 <code>pacstrap</code> 脚本安装基础包：</li>
+</ol>
+<blockquote>
+<p>Pacstrap is designed to create a new system installation from
+scratch.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 如果使用btrfs文件系统，额外安装一个btrfs-progs包</span><br>pacstrap /mnt base base-devel linux linux-firmware btrfs-progs<br></code></pre></td></tr></table></figure>
+<p>相关参数： - <code>base-devel</code>：在 AUR
+包的安装过程中是必须用到的 -
+<code>linux</code>：内核软件包，这里建议先不要替换为其它内核</p>
+<ol start="2" type="1">
+<li>如果提示 GPG 证书错误，可能是因为使用的不是最新的镜像文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 通过更新 archlinux-keyring 解决此问题</span><br>pacman -S archlinux-keyring<br></code></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>安装其它必要的功能性软件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacstrap /mnt networkmanager vim sudo zsh zsh-completions<br></code></pre></td></tr></table></figure>
+<h3 id="生成-fstab-文件"><a href="#生成-fstab-文件" class="headerlink" title="生成-fstab-文件"></a>生成 fstab 文件</h3>
+<blockquote>
+<p>fstab 用来定义磁盘分区。它是 Linux 系统中重要的文件之一。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用 genfstab 自动根据当前挂载情况生成并写入 fstab 文件：</span><br>genfstab -U /mnt &gt; /mnt/etc/fstab<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 复查 /mnt/etc/fstab</span><br><span class="hljs-built_in">cat</span> /mnt/etc/fstab<br></code></pre></td></tr></table></figure>
+<p>如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /dev/sdb2 LABEL=Lingmo</span><br>UUID=d34ad4d9-8c4f-4ffc-adf4-6d5985dd4da3       /               btrfs           rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@       0 0<br><br><span class="hljs-comment"># /dev/sdb2 LABEL=Lingmo</span><br>UUID=d34ad4d9-8c4f-4ffc-adf4-6d5985dd4da3       /home           btrfs           rw,relatime,compress=zstd:3,space_cache=v2,subvolid=257,subvol=/@home   0 0<br><br><span class="hljs-comment"># /dev/sdb1</span><br>UUID=4CF3-8291                                  /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro   0 2<br></code></pre></td></tr></table></figure>
+<h3 id="进入-chroot"><a href="#进入-chroot" class="headerlink" title="进入-chroot"></a>进入 chroot</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">arch-chroot /mnt<br></code></pre></td></tr></table></figure>
+<h3 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 填入主机名</span><br>vim /etc/hostname<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置hosts</span><br>vim /etc/hosts<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 加入以下</span><br>127.0.0.1   localhost<br>::1         localhost<br>127.0.1.1   myarch.localdomain myarch<br></code></pre></td></tr></table></figure>
+<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在 /etc/localtime 下用 /usr 中合适的时区创建符号链接</span><br><span class="hljs-built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime<br></code></pre></td></tr></table></figure>
+<h3 id="硬件时间设置"><a href="#硬件时间设置" class="headerlink" title="硬件时间设置"></a>硬件时间设置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hwclock --systohc<br></code></pre></td></tr></table></figure>
+<h3 id="设置-locale"><a href="#设置-locale" class="headerlink" title="设置-locale"></a>设置 Locale</h3>
+<blockquote>
+<p>Locale 决定了软件使用的语言、书写习惯和字符集。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 编辑 /etc/locale.gen，去掉 en_US.UTF-8 UTF-8 以及 zh_CN.UTF-8 UTF-8 行前的注释符号（#）：</span><br>vim /etc/locale.gen<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 生成 locale</span><br>locale-gen<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置 locale.conf</span><br><span class="hljs-comment"># 不推荐在此设置任何中文 locale，可能会导致 tty 乱码。</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;LANG=en_US.UTF-8&#x27;</span> &gt; /etc/locale.conf<br></code></pre></td></tr></table></figure>
+<h3 id="为-root-用户设置密码"><a href="#为-root-用户设置密码" class="headerlink" title="为-root-用户设置密码"></a>为 root 用户设置密码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">passwd root<br></code></pre></td></tr></table></figure>
+<h3 id="安装微码"><a href="#安装微码" class="headerlink" title="安装微码"></a>安装微码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S intel-ucode   <span class="hljs-comment"># Intel</span><br>pacman -S amd-ucode     <span class="hljs-comment"># AMD</span><br></code></pre></td></tr></table></figure>
+<h3 id="安装引导程序"><a href="#安装引导程序" class="headerlink" title="安装引导程序"></a>安装引导程序</h3>
+<ol type="1">
+<li>安装相应的包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S grub efibootmgr os-prober<br></code></pre></td></tr></table></figure>
+<p>相关参数 - <code>-S</code>：选项后指定要通过 pacman
+包管理器安装的包： - <code>grub</code>：启动引导器 -
+<code>efibootmgr</code>：efibootmgr 被 grub 脚本用来将启动项写入 NVRAM -
+<code>os-prober</code>：为了能够引导 win10，需要安装 os-prober
+以检测到它</p>
+<ol start="2" type="1">
+<li>安装 <code>GRUB</code> 到 <code>EFI</code> 分区</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH <br><span class="hljs-comment"># 可选参数：--removable</span><br></code></pre></td></tr></table></figure>
+<p>相关参数 - <code>--efi-directory=/boot</code>：将 grubx64.efi
+安装到之前的指定位置（EFI 分区） -
+<code>--bootloader-id=ARCH</code>：取名为 ARCH -
+<code>--removable</code>：用于安装到移动介质</p>
+<ol start="3" type="1">
+<li>编辑 <code>/etc/default/grub</code> 文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/default/grub<br></code></pre></td></tr></table></figure>
+<p>进行如下修改：</p>
+<ul>
+<li>去掉 <code>GRUB_CMDLINE_LINUX_DEFAULT</code> 一行中最后的 quiet
+参数</li>
+<li>把 <code>loglevel</code> 的数值从 <code>3</code> 改成
+<code>5</code>。这样是为了后续如果出现系统错误，方便排错</li>
+<li>加入 <code>nowatchdog</code> 参数，这可以显著提高开关机速度</li>
+</ul>
+<ol start="4" type="1">
+<li>生成 <code>GRUB</code> 所需的配置文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">grub-mkconfig -o /boot/grub/grub.cfg<br></code></pre></td></tr></table></figure>
+<h3 id="完成安装"><a href="#完成安装" class="headerlink" title="完成安装"></a>完成安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">exit</span> <br>umount -R /mnt <br>reboot <br></code></pre></td></tr></table></figure>
+<h3 id="设置开机启动项"><a href="#设置开机启动项" class="headerlink" title="设置开机启动项"></a>设置开机启动项</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动 networkmanager 服务即可连接网络</span><br>systemctl <span class="hljs-built_in">enable</span> --now NetworkManager<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 若为无线连接，则需要在启动 networkmanager 后使用 nmcli 连接网络：</span><br><br><span class="hljs-comment"># 显示附近的 Wi-Fi 网络</span><br>nmcli dev wifi list <br><br><span class="hljs-comment"># 连接指定的无线网络</span><br>nmcli dev wifi connect <span class="hljs-string">&quot;SSID&quot;</span> password <span class="hljs-string">&quot;PWD&quot;</span> <br></code></pre></td></tr></table></figure>
+<p>也可以使用 <code>nmtui</code> 来配置网络 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmtui<br></code></pre></td></tr></table></figure></p>
+<p>更新系统所有包 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -Syu<br></code></pre></td></tr></table></figure></p>
+<p>使用 neofetch 打印系统信息 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S neofetch<br>neofetch<br></code></pre></td></tr></table></figure></p>
+<p>添加用户 &amp; 进组 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -m: 建立 home 目录</span><br>useradd -m username <br><br><span class="hljs-comment"># 设置密码</span><br>passwd username<br><br><span class="hljs-comment"># -a: 在其之后可添加用户群组</span><br>gpasswd -a user groupname <br></code></pre></td></tr></table></figure></p>
+<p>安装 openssh 并启用 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S openssh<br>systemctl <span class="hljs-built_in">enable</span> --now sshd<br></code></pre></td></tr></table></figure></p>
+<h3 id="后日谈"><a href="#后日谈" class="headerlink" title="后日谈"></a>后日谈</h3>
+<h3 id="why-btrfs"><a href="#why-btrfs" class="headerlink" title="why-btrfs"></a>Why Btrfs ?</h3>
+<p>纵观 <code>Btrfs</code> 的历史，可以说 <code>Btrfs</code>
+未来的发展是道阻且长的。也让我们感受到开源社区也并不是一根绳上的蚂蚱 ——
+开源社区之间也有着各种各样的分歧。</p>
+<p>但不管怎么说，<code>Btrfs</code> 的未来现在来看是光明的；我们也可以在
+<code>archlinux</code> 上享受到 <code>Btrfs</code>
+文件系统的特性带来的好处：</p>
+<ol type="1">
+<li>快照 <code>archlinux</code> 作为滚动发行版，若滚挂了可以使用 Btrfs
+的快照特性快速回滚 若使用传统的 <code>ext4</code> 文件系统，我们可以使用
+<code>timeshift</code> 的 <code>RSYNC</code>
+模式进行增量备份。但是，一般来说 <code>RSYNC</code>
+方式的快照大小略大于当前实际使用大小，也就是说实际上开启了
+<code>timeshift</code> 的 <code>RSYNC</code>
+模式快照相当于磁盘可用空间直接少了一半多。因为虽然 RSYNC
+方式的快照是增量的，但历史最久远的快照依然是完整备份，随后才是增量的</li>
+<li>透明压缩 可以大大减少磁盘的使用空间（压缩率大概在 <code>10%</code>
+左右）</li>
+</ol>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/04/02/Limit/"> Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">镜像准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">安装流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">基础安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">加载镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%A1%E5%87%86%E6%97%B6%E9%97%B4"><span class="toc-number">2.1.2.</span> <span class="toc-text">校准时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">2.1.3.</span> <span class="toc-text">切换镜像源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.4.</span> <span class="toc-text">全新安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">建立分区表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8Befi%E5%88%86%E5%8C%BA"><span class="toc-number">2.1.4.2.</span> <span class="toc-text">建立EFI分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96-efi-%E5%88%86%E5%8C%BA"><span class="toc-number">2.1.4.3.</span> <span class="toc-text">格式化 EFI 分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96-swap-%E5%88%86%E5%8C%BA%E8%8B%A5%E6%9C%89"><span class="toc-number">2.1.4.4.</span> <span class="toc-text">格式化 Swap 分区（若有）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96-btrfs-%E5%88%86%E5%8C%BA"><span class="toc-number">2.1.4.5.</span> <span class="toc-text">格式化 Btrfs 分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD-btrfs-%E5%88%86%E5%8C%BA"><span class="toc-number">2.1.4.6.</span> <span class="toc-text">挂载 Btrfs 分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-btrfs-%E5%AD%90%E5%8D%B7"><span class="toc-number">2.1.4.7.</span> <span class="toc-text">创建 Btrfs 子卷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD-mnt"><span class="toc-number">2.1.4.8.</span> <span class="toc-text">卸载 &#x2F;mnt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%90%84%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.4.9.</span> <span class="toc-text">挂载各目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.5.</span> <span class="toc-text">安装系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-fstab-%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.6.</span> <span class="toc-text">生成 fstab 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5-chroot"><span class="toc-number">2.1.7.</span> <span class="toc-text">进入 chroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">2.1.8.</span> <span class="toc-text">修改主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-number">2.1.9.</span> <span class="toc-text">设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.10.</span> <span class="toc-text">硬件时间设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-locale"><span class="toc-number">2.1.11.</span> <span class="toc-text">设置 Locale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA-root-%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-number">2.1.12.</span> <span class="toc-text">为 root 用户设置密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BE%AE%E7%A0%81"><span class="toc-number">2.1.13.</span> <span class="toc-text">安装微码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.14.</span> <span class="toc-text">安装引导程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.15.</span> <span class="toc-text">完成安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="toc-number">2.1.16.</span> <span class="toc-text">设置开机启动项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E6%97%A5%E8%B0%88"><span class="toc-number">2.1.17.</span> <span class="toc-text">后日谈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#why-btrfs"><span class="toc-number">2.1.18.</span> <span class="toc-text">Why Btrfs ?</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

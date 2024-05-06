@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>第二型积分 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>第二型积分</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-03-02T01:47:36.000Z" id="date"> 2024-03-02</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-03T01:02:23.211Z" id="updated"> 2024-04-03</time></div></span></div></div><hr><div id="post-content"><h1 id="第二型积分"><a href="#第二型积分" class="headerlink" title="第二型积分"></a>第二型积分</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>设 <span class="math inline">\(\Omega\)</span>
+为空间上一有向几何体，即在 <span class="math inline">\(\Omega\)</span>
+上每一点 <span class="math inline">\(P\)</span> 处都确定了一方向 <span
+class="math inline">\(\overrightarrow{e_P}\)</span>，<span
+class="math inline">\(P \in \Omega\)</span>，<span
+class="math inline">\(\overrightarrow{A}(P)\)</span> 为 <span
+class="math inline">\(\Omega\)</span> 上一向量值函数。首先，将 <span
+class="math inline">\(\Omega\)</span> 任意分成 <span
+class="math inline">\(n\)</span> 个有向几何体 <span
+class="math inline">\(\Delta\Omega_1, \Delta\Omega_2, \cdots,
+\Delta\Omega_n\)</span>；然后在每一个有向几何体上做内积 <span
+class="math inline">\(\overrightarrow{A}(P) \cdot
+\Delta\overrightarrow{\Omega_i}(i = 1, 2, \cdots, n), P_i \in
+\Delta\Omega_i\)</span>，<span
+class="math inline">\(\Delta\overrightarrow{\Omega_i}\)</span> 是以
+<span class="math inline">\(\Delta\Omega_i\)</span> 的几何量为模，以
+<span class="math inline">\(P_i\)</span>
+点的方向为方向的向量，再将上述内积加起来得 <span
+class="math inline">\(\sum\limits_{i=1}^n \overrightarrow{A}(P_i) \cdot
+\Delta\overrightarrow{\Omega_i}\)</span>。若无论 <span
+class="math inline">\(\Omega\)</span> 如何分，<span
+class="math inline">\(P_i \in \Delta \Omega_i\)</span>如何取，极限 <span
+class="math inline">\(\lim\limits_{\lambda\to 0}\sum\limits_{i=1}^n
+\overrightarrow{A}(P_i) \cdot \Delta
+\overrightarrow{\Omega_i}\)</span>，<span class="math inline">\(\lambda
+= \max\{d_i \vert i = 1,2,\cdots, n\}\)</span>，<span
+class="math inline">\(d_i\)</span> 是 <span class="math inline">\(\Delta
+\Omega_i\)</span> 的直径，都存在且相等，则称此极限值为 <span
+class="math inline">\(\overrightarrow{A}(P_i)\)</span> 在 <span
+class="math inline">\(\Omega\)</span> 上给定方向 <span
+class="math inline">\(\overrightarrow{e_P}\)</span>
+下的<strong>第二型积分</strong>，记为</p>
+<p><span class="math display">\[
+\lim\limits_{\lambda\to 0} \sum\limits_{i=1}^n \overrightarrow{A}(P_i)
+\cdot \Delta\overrightarrow{\Omega_i} \triangleq \int\limits_\Omega
+\overrightarrow{A} (P) d \overrightarrow{\Omega}
+\]</span></p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2>
+<h1 id="第二型曲线积分"><a href="#第二型曲线积分" class="headerlink" title="第二型曲线积分"></a>第二型曲线积分</h1>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义-1"></a>定义</h2>
+<p>设 <span class="math inline">\(C\)</span>
+是空间一有向曲线，其方向为其切线给定方向，引入直角坐标，<span
+class="math inline">\(\overrightarrow{A}(P) =
+\{P(x,y,z),Q(x,y,z),R(x,y,z)\}\)</span> 是 <span
+class="math inline">\(C\)</span> 上连续函数，则</p>
+<p><span class="math display">\[
+d\Omega \cos\alpha_P = dx,\quad d\Omega\cos\beta_P = dy,\quad
+d\Omega\cos \gamma_P = dz
+\]</span></p>
+<p>称 <span class="math inline">\(\int\limits_C \overrightarrow{A}(P)
+d\overrightarrow{\Omega} = \int\limits_C Pdx + Qdy + Rdz\)</span> 为
+<span class="math inline">\(\overrightarrow{A}(x,y,z)\)</span> 在 <span
+class="math inline">\(C\)</span>
+上给定方向的<strong>第二型曲线积分</strong>。</p>
+<h2 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h2>
+<h3 id="参数法"><a href="#参数法" class="headerlink" title="参数法"></a>参数法</h3>
+<p>设曲线 <span class="math inline">\(C\)</span> 为 <span
+class="math inline">\(\begin{cases}  x = x(t) \\  y = y(t) \\  z = z(t)
+\end{cases}\)</span> 始点 <span class="math inline">\(t=a\)</span>，终点
+<span class="math inline">\(t=b\)</span>，<span
+class="math inline">\(C\)</span> 为光滑曲线，则 <span
+class="math display">\[
+\begin{split}
+    \int\limits_C Pdx + Qdy + Rdz &amp; = \int_a^b Pdx(t) + Qdy(t) +
+Rdz(t) \\
+    &amp; =\int_a^b \left[P x&#39;(t) + Qy&#39;(t) + Rz&#39;(t)\right]dt
+\end{split}
+\]</span></p>
+<h3 id="格林公式"><a href="#格林公式" class="headerlink" title="格林公式"></a>格林公式</h3>
+<p>设 <span class="math inline">\(D\)</span> 为单连通区域，<span
+class="math inline">\(C\)</span> 为 <span
+class="math inline">\(D\)</span>
+的边界闭曲线，其方向为<strong>正向</strong>。<span
+class="math inline">\(P(x,y), Q(x,y)\)</span> 是 <span
+class="math inline">\(C+D\)</span> 上具有连续一阶偏导的函数，则 <span
+class="math display">\[
+\oint\limits_C P(x,y)dx + Q(x,y)dy = \oiint\limits_D
+\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
+y}\right) dxdy
+\]</span></p>
+<h4 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h4>
+<p>设曲线 <span class="math inline">\(C\)</span> 是由 <span
+class="math inline">\(n+1\)</span> 条简单连续、逐段光滑闭曲线 <span
+class="math inline">\(C_0, C_1, \cdots, C_n\)</span> 组成，其中 <span
+class="math inline">\(C_1, \cdots, C_n\)</span> 互不相交，每条都在其余
+<span class="math inline">\(n-1\)</span> 条外部区域内，而它们全体又在
+<span class="math inline">\(C_0\)</span> 所围区域内部。<span
+class="math inline">\(C_0\)</span> 与 <span class="math inline">\(C_1,
+\cdots, C_n\)</span> 所界定区域为 <span
+class="math inline">\(D\)</span>，<span class="math inline">\(C\)</span>
+的方向对 <span class="math inline">\(D\)</span>
+而言为<strong>左手域方向</strong>，而 <span
+class="math inline">\(P(x,y), Q(x,y)\)</span> 又是 <span
+class="math inline">\(C+D\)</span> 上具有连续一阶偏导的函数，则 <span
+class="math display">\[
+\oint\limits_C P(x,y)dx + Q(x,y)dy = \oiint\limits_D
+\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
+y}\right) dxdy
+\]</span></p>
+<h3 id="斯托克斯公式"><a href="#斯托克斯公式" class="headerlink" title="斯托克斯公式"></a>斯托克斯公式</h3>
+<p>设 <span class="math inline">\(C\)</span> 为分段光滑有向闭曲线，<span
+class="math inline">\(S\)</span> 是以 <span
+class="math inline">\(C\)</span> 为边界的任一分片光滑的有向曲面，<span
+class="math inline">\(C\)</span> 与 <span
+class="math inline">\(S\)</span>
+的方向满足<strong>右手螺旋方向</strong>，函数 <span
+class="math inline">\(P(x,y,z), Q(x,y,z), R(x,y,z)\)</span> 是 <span
+class="math inline">\(S+C\)</span> 上具有连续偏导的函数，则 <span
+class="math display">\[
+\begin{split}
+    \oint\limits_C Pdx + Qdy + Rdz &amp; =\iint\limits_S
+\left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial
+z}\right) dydz + \left(\frac{\partial P}{\partial z} - \frac{\partial
+R}{\partial x}\right) dzdx + \left(\frac{\partial Q}{\partial x} -
+\frac{\partial P}{\partial y}\right) dxdy \\
+    &amp; = \iint\limits_S \begin{vmatrix}
+        dydz &amp; dzdx &amp; dxdy \\
+        \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y}
+&amp; \frac{\partial}{\partial z} \\
+        P &amp; Q &amp; R
+    \end{vmatrix} \\
+    &amp; = \iint\limits_S \begin{vmatrix}
+        \cos\alpha &amp; \cos\beta &amp; \cos\gamma \\
+        \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y}
+&amp; \frac{\partial}{\partial z} \\
+        P &amp; Q &amp; R
+    \end{vmatrix} dS
+\end{split}
+\]</span></p>
+<h2 id="平面曲线积分与路径无关"><a href="#平面曲线积分与路径无关" class="headerlink" title="平面曲线积分与路径无关"></a>平面曲线积分与路径无关</h2>
+<p>设 <span class="math inline">\(D\)</span> 为单连通区域，<span
+class="math inline">\(P, Q\)</span> 为 <span
+class="math inline">\(D\)</span> 上具有连续一阶偏导的函数，在 <span
+class="math inline">\(D\)</span> 上下述四结论等价： 1. <span
+class="math inline">\(D\)</span> 上任意闭曲线 <span
+class="math inline">\(C\)</span>，有 <span
+class="math inline">\(\oint\limits_C Pdx + Qdy = 0\)</span> 2. <span
+class="math inline">\(D\)</span> 上第二型曲线积分 <span
+class="math inline">\(\int\limits_{AB} Pdx + Qdy\)</span> 与路径无关 3.
+<span class="math inline">\(Pdx + Qdy\)</span> 是全微分 4. <span
+class="math inline">\(\frac{\partial P}{\partial y} = \frac{\partial
+Q}{\partial x}\)</span></p>
+<h2 id="全微分方程"><a href="#全微分方程" class="headerlink" title="全微分方程"></a>全微分方程</h2>
+<h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义-2"></a>定义</h3>
+<p>如果一阶微分方程 <span class="math inline">\(Pdx + Qdy = 0\)</span>
+满足 <span class="math inline">\(\frac{\partial P}{\partial y} =
+\frac{\partial Q}{\partial
+x}\)</span>，则称此方程为<strong>全微分方程（恰当方程）</strong>。</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3>
+<p><span class="math display">\[
+\begin{split}
+    通解公式\ u(x,y) = &amp; \int_{(x_0, y_0)}^{(x,y)} Pdx + Qdy = C \\
+    &amp; \int_{x_0}^x P(x,y_0)dx + \int_{y_0}^y Q(x,y)dy = C
+\end{split}
+\]</span></p>
+<p><strong>更一般地</strong>，方程两端乘以一个因子 <span
+class="math inline">\(u(x,y)\)</span> 才可以变成全微分方程。</p>
+<h2 id="空间曲线积分与路径无关"><a href="#空间曲线积分与路径无关" class="headerlink" title="空间曲线积分与路径无关"></a>空间曲线积分与路径无关</h2>
+<p>设 <span class="math inline">\(\Omega\)</span>
+为空间二维单连通区域，<span class="math inline">\(P, Q, R\)</span> 为
+<span class="math inline">\(\Omega\)</span> 上具有连续一阶偏导的函数，在
+<span class="math inline">\(\Omega\)</span> 上下述四结论等价： 1. <span
+class="math inline">\(\Omega\)</span> 上任意闭曲线 <span
+class="math inline">\(C\)</span>，有 <span
+class="math inline">\(\oint\limits_C Pdx + Qdy + Rdz = 0\)</span> 2.
+<span class="math inline">\(\Omega\)</span> 上第二型曲线积分 <span
+class="math inline">\(\int_{AB} Pdx + Qdy + Rdz\)</span> 与路径无关 3.
+<span class="math inline">\(Pdx + Qdy + Rdz\)</span> 是全微分 4. <span
+class="math inline">\(\frac{\partial R}{\partial y} = \frac{\partial
+Q}{\partial z}, \frac{\partial P}{\partial z} = \frac{\partial
+R}{\partial x}, \frac{\partial P}{\partial y} = \frac{\partial
+Q}{\partial x}\)</span></p>
+<h1 id="第二型曲面积分"><a href="#第二型曲面积分" class="headerlink" title="第二型曲面积分"></a>第二型曲面积分</h1>
+<h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义-3"></a>定义</h2>
+<p>设 <span class="math inline">\(S\)</span> 是空间一有向曲面，其方向
+<span class="math inline">\(\overrightarrow{n_P}, P \in S\)</span>
+为给定 <span class="math inline">\(S\)</span> 上一法向，<span
+class="math inline">\(\overrightarrow{A}(P) =
+\{P(x,y,z),Q(x,y,z),R(x,y,z)\}\)</span> 是 <span
+class="math inline">\(S\)</span> 上连续函数，则 <span
+class="math display">\[
+d\Omega \cos\alpha_P = dydz,\quad d\Omega\cos\beta_P = dzdx,\quad
+d\Omega\cos \gamma_P = dxdy
+\]</span> 称 <span class="math inline">\(\int\limits_S
+\overrightarrow{A}(P) d\overrightarrow{\Omega} = \int\limits_S Pdydz +
+Qdzdx + Rdxdy\)</span> 为 <span
+class="math inline">\(\overrightarrow{A}(x,y,z)\)</span> 在 <span
+class="math inline">\(S\)</span>
+上给定一侧的<strong>第二型曲面积分</strong>。</p>
+<h2 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法-1"></a>计算方法</h2>
+<h3 id="分面计算法"><a href="#分面计算法" class="headerlink" title="分面计算法"></a>分面计算法</h3>
+<p><span class="math display">\[
+\iint\limits_S Rdxdy = \begin{cases}
+    \iint\limits_{D_{xy}} R(x, y, g(x,y)) dxdy &amp; S为上侧 \\
+    -\iint\limits_{D_{xy}} R(x,y, g(x,y)) dxdy &amp; S为下侧
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\iint\limits_S Pdydz = \begin{cases}
+    \iint\limits_{D_{yz}} P(g(y,z), y, z) dydz &amp; S为前侧 \\
+    -\iint\limits_{D_{yz}} R(g(y, z), y, z) dydz &amp; S为后侧
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\iint\limits_S Qdzdx = \begin{cases}
+    \iint\limits_{D_{xz}} Q(x, g(x, z), z) dxdy &amp; S为右侧 \\
+    -\iint\limits_{D_{xz}} Q(x, g(x, z), z) dxdy &amp; S为左侧
+\end{cases}
+\]</span></p>
+<h3 id="投影法"><a href="#投影法" class="headerlink" title="投影法"></a>投影法</h3>
+<p><span class="math display">\[
+\begin{split}
+    \iint\limits_S Pdydz + Qdzdx + Rdxdy &amp; =\iint\limits_S
+\left[P\left(-\frac{\partial z}{\partial x}\right) +
+Q\left(-\frac{\partial z}{\partial y}\right) + R\right]dxdy \\
+    &amp; = \pm \iint\limits_D \left[P\left(-\frac{\partial z}{\partial
+x}\right) + Q\left(-\frac{\partial z}{\partial y}\right) + R\right]dxdy
+\end{split}
+\]</span></p>
+<h3 id="高斯公式"><a href="#高斯公式" class="headerlink" title="高斯公式"></a>高斯公式</h3>
+<p>设<strong>空间二维单连通</strong>区域 <span
+class="math inline">\(\Omega\)</span> 的边界 <span
+class="math inline">\(S\)</span>
+是光滑的，其方向为<strong>外法方向</strong>，函数 <span
+class="math inline">\(P(x,y,z)\)</span>，<span
+class="math inline">\(Q(x,y,z)\)</span>，<span
+class="math inline">\(R(x,y,z)\)</span> 在 <span
+class="math inline">\(\Omega\)</span> 上具有连续一阶偏导数，则有 <span
+class="math display">\[
+\oiint\limits_S Pdydz + Qdzdx + Rdxdy = \iiint\limits_\Omega
+\left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} +
+\frac{\partial R}{\partial z}\right) d\Omega
+\]</span></p>
+<h4 id="推广-1"><a href="#推广-1" class="headerlink" title="推广-1"></a>推广</h4>
+<p>设 <span class="math inline">\(S\)</span> 是由两个闭曲面 <span
+class="math inline">\(S_1, S_2\)</span> 组成，<span
+class="math inline">\(S_1\)</span> 的方向为外法方向，<span
+class="math inline">\(S_2\)</span> 的方向为内法方向，且 <span
+class="math inline">\(S_2\)</span> 在 <span
+class="math inline">\(S_1\)</span> 所围区域内部，介于 <span
+class="math inline">\(S_1, S_2\)</span> 之间区域为 <span
+class="math inline">\(\Omega\)</span>，函数 <span
+class="math inline">\(P(x,y,z), Q(x,y,z), R(x,y,z)\)</span> 在 <span
+class="math inline">\(\Omega\)</span> 与 <span
+class="math inline">\(S\)</span> 上具有连续一阶偏导数，则有 <span
+class="math display">\[
+\oiint\limits_S Pdydz + Qdzdx + Rdxdy = \iiint\limits_\Omega
+\left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} +
+\frac{\partial R}{\partial z}\right) d\Omega
+\]</span></p>
+<h1 id="向量场"><a href="#向量场" class="headerlink" title="向量场"></a>向量场</h1>
+<h2 id="平均散发量"><a href="#平均散发量" class="headerlink" title="平均散发量"></a>平均散发量</h2>
+<h2 id="散度"><a href="#散度" class="headerlink" title="散度"></a>散度</h2>
+<h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义-4"></a>定义</h3>
+<p><span class="math inline">\(\lim\limits_{\Delta\Omega \to M}
+\frac{1}{\Delta\Omega} \oiint\limits_{\Delta S} Pdydz + Qdzdx +
+Rdxdy\)</span>（<span class="math inline">\(\Delta S\)</span>
+为外法方向），记为 <span class="math inline">\(\operatorname{div}
+\overrightarrow{A}(M)\)</span></p>
+<p>当 <span
+class="math inline">\(\operatorname{div}\overrightarrow{A}(M) &gt;
+0\)</span> 时，<span class="math inline">\(M\)</span> 点为 <span
+class="math inline">\(\overrightarrow{A}\)</span>
+的<strong>正源</strong></p>
+<p>当 <span
+class="math inline">\(\operatorname{div}\overrightarrow{A}(M) &lt;
+0\)</span> 时，<span class="math inline">\(M\)</span> 点为 <span
+class="math inline">\(\overrightarrow{A}\)</span>
+的<strong>负源</strong></p>
+<p>当 <span
+class="math inline">\(\operatorname{div}\overrightarrow{A}(M) =
+0\)</span> 时，<span class="math inline">\(M\)</span> 点非 <span
+class="math inline">\(\overrightarrow{A}\)</span> 的源</p>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3>
+<p><span class="math display">\[
+\begin{split}
+    \operatorname{div} \overrightarrow{A}(M_0)&amp; =
+\left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} +
+\frac{\partial R}{\partial z}\right)\Bigg|_{M_0} \\
+    &amp; = \nabla \overrightarrow{A}(M_0)
+\end{split}
+\]</span></p>
+<h2 id="环流面密度"><a href="#环流面密度" class="headerlink" title="环流面密度"></a>环流面密度</h2>
+<h3 id="定义-5"><a href="#定义-5" class="headerlink" title="定义-5"></a>定义</h3>
+<p><span class="math inline">\(\lim\limits_{\Delta S \to
+M}\frac{1}{\Delta S} \oint\limits_{\Delta C} Pdx + Qdy +
+Rdz\)</span></p>
+<h3 id="计算-1"><a href="#计算-1" class="headerlink" title="计算-1"></a>计算</h3>
+<p><span class="math display">\[
+\lim\limits_{\Delta S \to M}\frac{1}{\Delta S} \oint\limits_{\Delta C}
+Pdx + Qdy + Rdz = \begin{vmatrix}
+        \cos\alpha &amp; \cos\beta &amp; \cos\gamma \\
+        \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y}
+&amp; \frac{\partial}{\partial z} \\
+        P &amp; Q &amp; R
+    \end{vmatrix}_M
+\]</span></p>
+<h2 id="旋度"><a href="#旋度" class="headerlink" title="旋度"></a>旋度</h2>
+<h3 id="定义-6"><a href="#定义-6" class="headerlink" title="定义-6"></a>定义</h3>
+<p>记为 <span
+class="math inline">\(\operatorname{rot}\overrightarrow{A}(M) =
+\overrightarrow{H}\)</span></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/02/Trigonometric-Series/">← Next 三角级数</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/01/Power-Series/">幂级数 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E7%A7%AF%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">第二型积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">第二型曲线积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E6%B3%95"><span class="toc-number">2.2.1.</span> <span class="toc-text">参数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E6%9E%97%E5%85%AC%E5%BC%8F"><span class="toc-number">2.2.2.</span> <span class="toc-text">格林公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">推广</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%AF%E6%89%98%E5%85%8B%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">2.2.3.</span> <span class="toc-text">斯托克斯公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86%E4%B8%8E%E8%B7%AF%E5%BE%84%E6%97%A0%E5%85%B3"><span class="toc-number">2.3.</span> <span class="toc-text">平面曲线积分与路径无关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">2.4.</span> <span class="toc-text">全微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">2.4.2.</span> <span class="toc-text">解法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86%E4%B8%8E%E8%B7%AF%E5%BE%84%E6%97%A0%E5%85%B3"><span class="toc-number">2.5.</span> <span class="toc-text">空间曲线积分与路径无关</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">第二型曲面积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1"><span class="toc-number">3.2.</span> <span class="toc-text">计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%9D%A2%E8%AE%A1%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">分面计算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1%E6%B3%95"><span class="toc-number">3.2.2.</span> <span class="toc-text">投影法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">3.2.3.</span> <span class="toc-text">高斯公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF-1"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">推广</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">向量场</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E6%95%A3%E5%8F%91%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">平均散发量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">散度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-4"><span class="toc-number">4.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-number">4.2.2.</span> <span class="toc-text">计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E6%B5%81%E9%9D%A2%E5%AF%86%E5%BA%A6"><span class="toc-number">4.3.</span> <span class="toc-text">环流面密度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-5"><span class="toc-number">4.3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97-1"><span class="toc-number">4.3.2.</span> <span class="toc-text">计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E5%BA%A6"><span class="toc-number">4.4.</span> <span class="toc-text">旋度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-6"><span class="toc-number">4.4.1.</span> <span class="toc-text">定义</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

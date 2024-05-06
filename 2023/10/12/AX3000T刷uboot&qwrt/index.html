@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AX3000T刷uboot &amp; qwrt | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>AX3000T刷uboot &amp; qwrt</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-12T13:36:37.000Z" id="date"> 2023-10-12</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.698Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="破解ssh"><a href="#破解ssh" class="headerlink" title="破解ssh"></a>破解SSH</h1>
+<p>登录路由器后台，url中stok后面的数值替换为<code>&lt;stok&gt;</code>
+，使用windows 终端执行替换后的命令，返回值为0即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -X POST http://192.168.1.1/cgi-bin/luci/;stok=&lt;stok&gt;/api/misystem/arn_switch -d &quot;open=1&amp;model=1&amp;level=%0Anvram%20set%20ssh_en%3D1%0A&quot;<br><br>curl -X POST http://192.168.1.1/cgi-bin/luci/;stok=&lt;stok&gt;/api/misystem/arn_switch -d &quot;open=1&amp;model=1&amp;level=%0Anvram%20COMMIT%0A&quot;<br><br>curl -X POST http://192.168.1.1/cgi-bin/luci/;stok=&lt;stok&gt;/api/misystem/arn_switch -d &quot;open=1&amp;model=1&amp;level=%0Ased%20-i%20&#x27;s%2Fchannel%3D.*%2Fchannel%3D%22debug%22%2Fg&#x27;%20%2Fetc%2Finit.d%2Fdropbear%0A&quot;<br><br>curl -X POST http://192.168.1.1/cgi-bin/luci/;stok=&lt;stok&gt;/api/misystem/arn_switch -d &quot;open=1&amp;model=1&amp;level=%0A%2Fetc%2Finit.d%2Fdropbear%20start%0A&quot;<br></code></pre></td></tr></table></figure>
+<h1 id="备份分区"><a href="#备份分区" class="headerlink" title="备份分区"></a>备份分区</h1>
+<p>ssh 登录路由器后台，密码需要使用sn号进行换算，网址如下：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//miwifi.dev/ssh</span><br></code></pre></td></tr></table></figure>
+<p>备份mtd，使用如下命令备份，由于tmp
+空间太小，备份一部分后请保存到本地电脑再继续备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">dd if=/dev/mtd1 of=/tmp/BL2.bin<br>dd if=/dev/mtd2 of=/tmp/Nvram.bin<br>dd if=/dev/mtd3 of=/tmp/Bdata.bin<br>dd if=/dev/mtd4 of=/tmp/Factory.bin<br>dd if=/dev/mtd5 of=/tmp/FIP.bin<br>dd if=/dev/mtd6 of=/tmp/crash.bin<br>dd if=/dev/mtd7 of=/tmp/crash_log.bin<br>dd if=/dev/mtd8 of=/tmp/ubi.bin<br><br>dd if=/dev/mtd9 of=/tmp/ubi1.bin<br>dd if=/dev/mtd10 of=/tmp/overlay.bin<br>dd if=/dev/mtd11 of=/tmp/data.bin<br>dd if=/dev/mtd12 of=/tmp/KF.bin<br></code></pre></td></tr></table></figure>
+<h1 id="刷入uboot"><a href="#刷入uboot" class="headerlink" title="刷入uboot"></a>刷入UBoot</h1>
+<p>上传uboot文件到tmp目录</p>
+<p>执行以下命令安装uboot</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mtd write *.bin FIP<br></code></pre></td></tr></table></figure>
+<p>断电，按住reset 键后，插入电源线，等3秒左右即可进入uboot 界面</p>
+<h1 id="刷入qwrt"><a href="#刷入qwrt" class="headerlink" title="刷入qwrt"></a>刷入QWRT</h1>
+<p>电脑设置固定ip 192.168.1.2 后，浏览器输入 http://192.168.1.1
+进入uboot
+，选择分区模式为qwrt，然后选择要更新的固件，点击uploa上传并更新</p>
+<p>更新并重启后等待3-5分钟，设备指示灯亮蓝灯即可，网线插入路由器从左到右数第二个接口，浏览器输入
+http://192.168.1.1 进入openwrt 界面</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/11/24/%E5%8F%8C%E6%8C%87%E9%92%88/">← Next 双指针算法</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/03/21/Ubuntu/">服务器好玩的东西 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A0%B4%E8%A7%A3ssh"><span class="toc-number">1.</span> <span class="toc-text">破解SSH</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E5%88%86%E5%8C%BA"><span class="toc-number">2.</span> <span class="toc-text">备份分区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E5%85%A5uboot"><span class="toc-number">3.</span> <span class="toc-text">刷入UBoot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E5%85%A5qwrt"><span class="toc-number">4.</span> <span class="toc-text">刷入QWRT</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>

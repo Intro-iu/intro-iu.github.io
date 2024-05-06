@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>三角级数 | Intro's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 7.1.1"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>三角级数</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-03-02T06:44:43.000Z" id="date"> 2024-03-02</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-02T09:36:57.702Z" id="updated"> 2024-04-02</time></div></span></div></div><hr><div id="post-content"><h1 id="三角级数"><a href="#三角级数" class="headerlink" title="三角级数"></a>三角级数</h1>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2>
+<p>称 <span class="math inline">\(\frac{1}{2}a_0 +
+\sum\limits_{n=1}^\infty a_n\cos nx + b_n \sin nx\)</span>
+为<strong>三角级数</strong>。</p>
+<h1 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h1>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义-1"></a>定义</h2>
+<p>若 <span class="math inline">\(f(x)\)</span> 以 <span
+class="math inline">\(2\pi\)</span> 为周期，且以下积分存在 <span
+class="math display">\[
+\begin{split}
+    &amp;a_0 = \frac{1}{\pi}\int_{-\pi}^\pi f(x)dx \\
+    &amp;a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos nxdx \\
+    &amp;b_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\sin nxdx
+\end{split}
+\]</span> 称 <span class="math inline">\(\frac{1}{2} a_0 +
+\sum\limits_{n=1}^\infty a_n \cos nx + b_n \sin nx\)</span> 为 <span
+class="math inline">\(f(x)\)</span>
+的<strong>傅里叶级数</strong>，简称为 <span
+class="math inline">\(F-\)</span> 级数。</p>
+<p>其中 <span class="math inline">\(a_0, a_n, b_n(n=1,2,\cdots)\)</span>
+为<strong>傅里叶系数</strong>。</p>
+<p>若 <span class="math inline">\(f(x)\)</span> 为奇函数，<span
+class="math inline">\(a_0 = a_n = 0(n=1, 2, \cdots)\)</span>，<span
+class="math inline">\(b_n = \frac{2}{\pi}\int_0^\pi f(x)\sin nx
+dx\)</span>，此时 <span class="math inline">\(F-\)</span> 级数变为 <span
+class="math inline">\(\sum\limits_{n=1}^\infty b_n \sin
+nx\)</span>，称为 <strong><span class="math inline">\(F-\)</span>
+正弦型级数</strong>。</p>
+<p>若 <span class="math inline">\(f(x)\)</span> 为偶函数，<span
+class="math inline">\(b_n = 0, a_0 = \frac{2}{\pi}\int_0^\pi f(x)dx, a_n
+= \frac{2}{\pi}\int_0^\pi f(x)\cos nx dx, (n=1,2,\cdots)\)</span>，此时
+<span class="math inline">\(F-\)</span> 级数变为 <span
+class="math inline">\(\frac{1}{2} a_0 + \sum\limits_{n=1}^\infty a_n
+\cos nx\)</span>，称为 <strong><span class="math inline">\(F-\)</span>
+余弦型级数</strong></p>
+<h2 id="狄利克雷定理"><a href="#狄利克雷定理" class="headerlink" title="狄利克雷定理"></a>狄利克雷定理</h2>
+<p>若 <span class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\([-\pi, \pi]\)</span> 上满足： 1.
+至多有限个第一类间断点 2. 至多有限个极值</p>
+<p>则 <span class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\([-\pi, \pi]\)</span> 上 <span
+class="math inline">\(F-\)</span> 级数收敛，且 <span
+class="math display">\[
+\frac{1}{2}a_0 + \sum\limits_{n=1}^\infty (a_n \cos nx + b_n \sin nx) =
+\begin{cases}
+    f(x) &amp; x 为 (-\pi, \pi) 的连续点 \\
+    \frac{1}{2}  \left[f(x^+) + f(x^-)\right] &amp; x 为 (-\pi, \pi)
+的第一类间断点 \\
+    \frac{1}{2} \left[f(-\pi^+) + f(\pi^-)\right]&amp; x = \pm\pi
+\end{cases}
+\]</span></p>
+<h2 id="以-2l-为周期的函数的傅里叶级数">以 <span
+class="math inline">\(2l\)</span> 为周期的函数的傅里叶级数</h2>
+<p><span class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\([-l, l]\)</span> 的 <span
+class="math inline">\(F-\)</span> 级数为 <span
+class="math inline">\(\frac{1}{2}a_0 + \sum\limits_{n=1}^\infty
+\left(a_n \cos \frac{n\pi}{l}x + b_n \sin
+\frac{n\pi}{l}x\right)\)</span>，其中 <span class="math display">\[
+\begin{split}
+    &amp;a_0 = \frac{1}{l}\int_{-l}^l f(x)dx \\
+    &amp;a_n = \frac{1}{l}\int_{-l}^l f(x)\cos \frac{n\pi}{l}xdx \\
+    &amp;b_n = \frac{1}{l}\int_{-l}^l f(x)\sin \frac{n\pi}{l}xdx
+\end{split}
+\]</span></p>
+<h2 id="有限区间上函数的傅里叶级数"><a href="#有限区间上函数的傅里叶级数" class="headerlink" title="有限区间上函数的傅里叶级数"></a>有限区间上函数的傅里叶级数</h2>
+<p>对在 <span class="math inline">\([a,b]\)</span> 定义的函数 <span
+class="math inline">\(f(x)\)</span> 的傅里叶级数，可以将 <span
+class="math inline">\(f(x)\)</span> 延拓成以 <span
+class="math inline">\(T = b-a\)</span> 为周期的函数</p>
+<h3 id="在-0l-上的正弦型级数">在 <span
+class="math inline">\([0,l]\)</span> 上的正弦型级数</h3>
+<p><strong>方法：</strong> 将 <span class="math inline">\(f(x)\)</span>
+奇延拓成 <span class="math inline">\([-l, l]\)</span> 上的奇函数 <span
+class="math display">\[
+g(x) = \begin{cases}
+    f(x) &amp; x \in [0, l] \\
+    -f(x) &amp; x \in [-l, 0)
+\end{cases}
+\]</span> 则 <span class="math inline">\(g(x)\)</span> 在 <span
+class="math inline">\([-l, l]\)</span> 上的 <span
+class="math inline">\(F-\)</span> 级数就是 <span
+class="math inline">\(f(x)\)</span> 在 <span class="math inline">\([0,
+l]\)</span> 上正弦型级数。 <span class="math display">\[
+b_n = \frac{2}{l} \int_0^l f(x) \sin \frac{n\pi}{l}xdx
+\]</span> <span class="math display">\[
+\sum\limits_{n=1}^\infty b_n \sin \frac{n\pi}{l}x = \begin{cases}
+\begin{gather*}
+    \frac{1}{2}\left[f(x^+) + f(x^-)\right] &amp;x\in (0, l) \\
+    0 &amp; x=0,l
+\end{gather*}
+\end{cases}
+\]</span></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/05/Mulifunction/">← Next 多元函数</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/02/Type-II-Integral/">第二型积分 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Intro</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E7%BA%A7%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">三角级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">傅里叶级数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%AE%9A%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">狄利克雷定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5-2l-%E4%B8%BA%E5%91%A8%E6%9C%9F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">以 \(2l\) 为周期的函数的傅里叶级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E5%8C%BA%E9%97%B4%E4%B8%8A%E5%87%BD%E6%95%B0%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">有限区间上函数的傅里叶级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-0l-%E4%B8%8A%E7%9A%84%E6%AD%A3%E5%BC%A6%E5%9E%8B%E7%BA%A7%E6%95%B0"><span class="toc-number">2.4.1.</span> <span class="toc-text">在 \([0,l]\) 上的正弦型级数</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://ak.hypergryph.com/">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Intro-iu">Intro-iu</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
